@@ -1,220 +1,535 @@
-<!-- SANDWICHES -->
-    <div id="vdm-sandwich" class="vdm-section">
-        <div class="vdm-section-header">
-            <i class="fa-solid fa-bread-slice vdm-section-icon"></i>
-            <h2 class="vdm-section-title" data-i18n="title-snd">Sandviçler</h2>
-            <div class="vdm-divider"></div>
-        </div>
-        
-        <div class="vdm-item-list">
-            <div class="vdm-item"><div class="vdm-item-row"><h3 class="vdm-item-name" data-i18n="item-snd-veg">Vejetaryen Sandviç</h3><div class="vdm-item-dots"></div><div class="vdm-item-price">285₺</div></div></div>
-            <div class="vdm-item"><div class="vdm-item-row"><h3 class="vdm-item-name" data-i18n="item-snd-cheese">Dört Peynirli Sandviç</h3><div class="vdm-item-dots"></div><div class="vdm-item-price">285₺</div></div></div>
-            <div class="vdm-item"><div class="vdm-item-row"><h3 class="vdm-item-name" data-i18n="item-snd-beef">Dana Jambonlu Sandviç</h3><div class="vdm-item-dots"></div><div class="vdm-item-price">285₺</div></div></div>
-            <div class="vdm-item"><div class="vdm-item-row"><h3 class="vdm-item-name" data-i18n="item-snd-turkey">Hindi Füme Sandviç</h3><div class="vdm-item-dots"></div><div class="vdm-item-price">285₺</div></div></div>
-            <div class="vdm-item"><div class="vdm-item-row"><h3 class="vdm-item-name" data-i18n="item-snd-moz">Mozzarella Sandviç</h3><div class="vdm-item-dots"></div><div class="vdm-item-price">285₺</div></div></div>
-            <div class="vdm-item"><div class="vdm-item-row"><h3 class="vdm-item-name" data-i18n="item-snd-teriyaki">Teriyaki Soslu Tavuklu Sandviç</h3><div class="vdm-item-dots"></div><div class="vdm-item-price">285₺</div></div></div>
-        </div>
-    </div>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vena Coffee Co. | Görsel Çekim Planı</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vena: {
+                            dark: '#121212',
+                            light: '#f7f6f3',
+                            accent: '#8c7a6b',
+                            stone: '#e5e5e5',
+                            muted: '#737373'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #f7f6f3;
+            color: #121212;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        /* Reveal Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Backgrounds */
+        .hero-bg {
+            background: linear-gradient(to bottom, rgba(18, 18, 18, 0.5), rgba(18, 18, 18, 0.95)), url('https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=2574&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .image-card-bg {
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.8s ease-out;
+        }
+        .group:hover .image-card-bg {
+            transform: scale(1.08);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f7f6f3; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #8c7a6b; 
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-vena-accent selection:text-white">
 
-    <!-- BITES (SUPERBITE) SECTION - MOVED BEFORE DESSERTS -->
-    <div id="vdm-bites" class="vdm-section">
-        <div class="vdm-section-header">
-            <i class="fa-solid fa-cookie-bite vdm-section-icon"></i>
-            <h2 class="vdm-section-title" data-i18n="title-bites">SuperBite Çeşitleri</h2>
-            <p class="vdm-section-desc" data-i18n="desc-bites-section">Sağlıklı, protein deposu özel atıştırmalıklar (Tam Labs)</p>
-            <div class="vdm-divider"></div>
-        </div>
-        
-        <div class="vdm-bites-grid">
-            <div class="vdm-bite-card">
-                <div class="vdm-bite-img">
-                    <img src="https://placehold.co/600x400/f7f3ec/a68361?text=Tahini+Protein+Bite" alt="Tahini Protein Bite">
-                </div>
-                <div class="vdm-bite-content">
-                    <h3 class="vdm-bite-name">Tahini Protein Bite</h3>
-                    <span class="vdm-bite-price">200₺</span>
-                    <p class="vdm-bite-desc" data-i18n="desc-bite-tahini">Hurma, tahin, bezelye proteini, kaju, glutensiz yulaf.</p>
-                </div>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="text-xl md:text-2xl font-serif tracking-widest text-white uppercase font-semibold transition-colors duration-500" id="nav-brand">Vena Coffee Co.</div>
+            <div class="hidden md:flex space-x-8 text-xs tracking-[0.2em] uppercase text-white font-medium transition-colors duration-500" id="nav-links">
+                <a href="#kurallar" class="hover:text-vena-accent transition-colors">Kurallar</a>
+                <a href="#mocktails" class="hover:text-vena-accent transition-colors">Seriler</a>
+                <a href="#mixology" class="hover:text-vena-accent transition-colors">Mixology</a>
             </div>
-
-            <div class="vdm-bite-card">
-                <div class="vdm-bite-img">
-                    <img src="https://placehold.co/600x400/f7f3ec/a68361?text=Peanut+Protein+Bite" alt="Peanut Protein Bite">
-                </div>
-                <div class="vdm-bite-content">
-                    <h3 class="vdm-bite-name">Peanut Protein Bite</h3>
-                    <span class="vdm-bite-price">200₺</span>
-                    <p class="vdm-bite-desc" data-i18n="desc-bite-peanut">Yer fıstığı, hurma, bezelye proteini, glutensiz yulaf.</p>
-                </div>
-            </div>
-
-            <div class="vdm-bite-card">
-                <div class="vdm-bite-img">
-                    <img src="https://placehold.co/600x400/f7f3ec/a68361?text=Framboise+Pistachio" alt="Framboise Pistachio Bite">
-                </div>
-                <div class="vdm-bite-content">
-                    <h3 class="vdm-bite-name">Framboise Pistachio Bite</h3>
-                    <span class="vdm-bite-price">200₺</span>
-                    <p class="vdm-bite-desc" data-i18n="desc-bite-framboise">Antep fıstığı, frambuaz, hurma, glutensiz yulaf.</p>
-                </div>
-            </div>
-
-            <div class="vdm-bite-card">
-                <div class="vdm-bite-img">
-                    <img src="https://placehold.co/600x400/f7f3ec/a68361?text=Bounty+Protein+Bite" alt="Bounty Protein Bite">
-                </div>
-                <div class="vdm-bite-content">
-                    <h3 class="vdm-bite-name">Bounty Protein Bite</h3>
-                    <span class="vdm-bite-price">200₺</span>
-                    <p class="vdm-bite-desc" data-i18n="desc-bite-bounty">Hindistan cevizi, hurma, kakao, bezelye proteini.</p>
-                </div>
-            </div>
-
-            <div class="vdm-bite-card">
-                <div class="vdm-bite-img">
-                    <img src="https://placehold.co/600x400/f7f3ec/a68361?text=Tutti+Frutti+Bite" alt="Tutti Frutti Protein Bite">
-                </div>
-                <div class="vdm-bite-content">
-                    <h3 class="vdm-bite-name">Tutti Frutti Protein Bite</h3>
-                    <span class="vdm-bite-price">200₺</span>
-                    <p class="vdm-bite-desc" data-i18n="desc-bite-tutti">Kuru meyveler, badem, hurma, bezelye proteini.</p>
-                </div>
-            </div>
-
-            <div class="vdm-bite-card">
-                <div class="vdm-bite-img">
-                    <img src="https://placehold.co/600x400/f7f3ec/a68361?text=Cookie+Dough+Bite" alt="Cookie Dough Protein Bite">
-                </div>
-                <div class="vdm-bite-content">
-                    <h3 class="vdm-bite-name">Cookie Dough Protein Bite</h3>
-                    <span class="vdm-bite-price">200₺</span>
-                    <p class="vdm-bite-desc" data-i18n="desc-bite-cookie">Badem unu, damla çikolata, hurma, bezelye proteini.</p>
-                </div>
-            </div>
-
-            <div class="vdm-bite-card">
-                <div class="vdm-bite-img">
-                    <img src="https://placehold.co/600x400/f7f3ec/a68361?text=Salted+Caramel+Bite" alt="Salted Caramel Protein Bite">
-                </div>
-                <div class="vdm-bite-content">
-                    <h3 class="vdm-bite-name">Salted Caramel Protein Bite</h3>
-                    <span class="vdm-bite-price">200₺</span>
-                    <p class="vdm-bite-desc" data-i18n="desc-bite-caramel">Karamel, deniz tuzu, hurma, badem, bezelye proteini.</p>
-                </div>
-            </div>
-
-            <div class="vdm-bite-card">
-                <div class="vdm-bite-img">
-                    <img src="https://placehold.co/600x400/f7f3ec/a68361?text=Pistachio+Matcha" alt="Pistachio Matcha Protein Bite">
-                </div>
-                <div class="vdm-bite-content">
-                    <h3 class="vdm-bite-name">Pistachio Matcha Protein Bite</h3>
-                    <span class="vdm-bite-price">200₺</span>
-                    <p class="vdm-bite-desc" data-i18n="desc-bite-matcha">Matcha, antep fıstığı, hurma, bezelye proteini.</p>
-                </div>
-            </div>
-
-            <div class="vdm-bite-card">
-                <div class="vdm-bite-img">
-                    <img src="https://placehold.co/600x400/f7f3ec/a68361?text=Lemon+Macaron+Bite" alt="Lemon Macaron Protein Bite">
-                </div>
-                <div class="vdm-bite-content">
-                    <h3 class="vdm-bite-name">Lemon Macaron Protein Bite</h3>
-                    <span class="vdm-bite-price">200₺</span>
-                    <p class="vdm-bite-desc" data-i18n="desc-bite-lemon">Limon, badem, hurma, bezelye proteini.</p>
-                </div>
-            </div>
-
-            <div class="vdm-bite-card">
-                <div class="vdm-bite-img">
-                    <img src="https://placehold.co/600x400/f7f3ec/a68361?text=Tahini+Twist+Bite" alt="Tahini Twist Protein Bite">
-                </div>
-                <div class="vdm-bite-content">
-                    <h3 class="vdm-bite-name">Tahini Twist Protein Bite</h3>
-                    <span class="vdm-bite-price">200₺</span>
-                    <p class="vdm-bite-desc" data-i18n="desc-bite-twist">Çifte kavrulmuş tahin, hurma, ceviz, bezelye proteini.</p>
-                </div>
+            <!-- Mobile Menu Icon (Visual Only) -->
+            <div class="md:hidden text-white" id="nav-mobile-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <!-- DESSERTS -->
-    <div id="vdm-dessert" class="vdm-section">
-        <div class="vdm-section-header">
-<!-- ... existing code ... -->
-            "item-peanutcookie": "Peanut Cookie", "desc-peanutcookie": "Yer fıstıklı, içi yumuşak dışı kıtır özel kurabiye.", "ing-peanutcookie": "<b>İçindekiler:</b> Yer fıstığı, un, tereyağı",
-            "item-cookie": "Ev Yapımı Cookie", "desc-cookie": "5 farklı çeşidiyle taptaze ev yapımı kurabiye.", "ing-cookie": "<b>Çeşitler:</b> Fındıklı, orman meyveli, portakal, kakaolu, sade",
+    <!-- Hero Section -->
+    <header class="hero-bg min-h-[100svh] flex flex-col justify-center items-center text-center px-6 relative">
+        <div class="max-w-4xl fade-in mt-16">
+            <span class="text-vena-accent tracking-[0.3em] text-xs md:text-sm uppercase mb-6 block font-semibold">Görsel Çekim Rehberi</span>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-tight">Atakule Teras<br><span class="italic font-light text-white/90">Koleksiyonu</span></h1>
+            <p class="text-gray-300 text-base md:text-xl font-light mb-12 max-w-2xl mx-auto leading-relaxed">
+                Tamamen still-life ve natürmort odaklı; modelsiz, durağan ve estetik. Vena'nın alkolsüz, ferah ve botanik dünyasını fotoğraflarla donduruyoruz.
+            </p>
             
-            // BITES TRANSLATIONS
-            "title-bites": "SuperBite Çeşitleri",
-            "desc-bites-section": "Sağlıklı, protein deposu özel atıştırmalıklar (Tam Labs)",
-            "desc-bite-tahini": "Hurma, tahin, bezelye proteini, kaju, glutensiz yulaf.",
-            "desc-bite-peanut": "Yer fıstığı, hurma, bezelye proteini, glutensiz yulaf.",
-            "desc-bite-framboise": "Antep fıstığı, frambuaz, hurma, glutensiz yulaf.",
-            "desc-bite-bounty": "Hindistan cevizi, hurma, kakao, bezelye proteini.",
-            "desc-bite-tutti": "Kuru meyveler, badem, hurma, bezelye proteini.",
-            "desc-bite-cookie": "Badem unu, damla çikolata, hurma, bezelye proteini.",
-            "desc-bite-caramel": "Karamel, deniz tuzu, hurma, badem, bezelye proteini.",
-            "desc-bite-matcha": "Matcha, antep fıstığı, hurma, bezelye proteini.",
-            "desc-bite-lemon": "Limon, badem, hurma, bezelye proteini.",
-            "desc-bite-twist": "Çifte kavrulmuş tahin, hurma, ceviz, bezelye proteini.",
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-white/80 text-xs tracking-widest font-light border-y border-white/20 py-6">
+                <div class="text-center px-2">
+                    <span class="block text-vena-accent font-medium mb-1">FORMAT</span>
+                    9:16 Dikey
+                </div>
+                <div class="text-center px-2 border-l border-white/20">
+                    <span class="block text-vena-accent font-medium mb-1">TÜR</span>
+                    Sadece Fotoğraf
+                </div>
+                <div class="text-center px-2 border-l border-white/20">
+                    <span class="block text-vena-accent font-medium mb-1">MODEL</span>
+                    Kesinlikle Yok
+                </div>
+                <div class="text-center px-2 border-l border-white/20">
+                    <span class="block text-vena-accent font-medium mb-1">STYLING</span>
+                    Vena Takeaway
+                </div>
+            </div>
+        </div>
+        <a href="#kurallar" class="absolute bottom-10 animate-bounce text-white/50 hover:text-white transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </a>
+    </header>
 
-            "footer-info": "Fiyat güncelleme tarihi 01.05.2026'dır.",
-<!-- ... existing code ... -->
-            "item-peanutcookie": "Peanut Cookie", "desc-peanutcookie": "Special cookie with peanuts, soft inside and crunchy outside.", "ing-peanutcookie": "<b>Ingredients:</b> Peanuts, flour, butter",
-            "item-cookie": "Homemade Cookie", "desc-cookie": "Freshly baked homemade cookies in 5 different varieties.", "ing-cookie": "<b>Varieties:</b> Hazelnut, forest fruit, orange, cocoa, plain",
-            
-            // BITES TRANSLATIONS
-            "title-bites": "SuperBite Varieties",
-            "desc-bites-section": "Healthy, protein-packed special snacks (Tam Labs)",
-            "desc-bite-tahini": "Dates, tahini, pea protein, cashews, gluten-free oats.",
-            "desc-bite-peanut": "Peanuts, dates, pea protein, gluten-free oats.",
-            "desc-bite-framboise": "Pistachios, raspberries, dates, gluten-free oats.",
-            "desc-bite-bounty": "Coconut, dates, cocoa, pea protein.",
-            "desc-bite-tutti": "Dried fruits, almonds, dates, pea protein.",
-            "desc-bite-cookie": "Almond flour, chocolate chips, dates, pea protein.",
-            "desc-bite-caramel": "Caramel, sea salt, dates, almonds, pea protein.",
-            "desc-bite-matcha": "Matcha, pistachios, dates, pea protein.",
-            "desc-bite-lemon": "Lemon, almonds, dates, pea protein.",
-            "desc-bite-twist": "Double roasted tahini, dates, walnuts, pea protein.",
+    <!-- 1. Konsept ve Styling -->
+    <section id="kurallar" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16 fade-in">
+            <h2 class="text-3xl md:text-5xl font-serif text-vena-dark mb-4">Sanat Yönetimi & Kurallar</h2>
+            <div class="w-16 h-px bg-vena-accent mx-auto"></div>
+        </div>
 
-            "footer-info": "Prices are valid as of 01.05.2026.",
-<!-- ... existing code ... -->
-            "item-peanutcookie": "Erdnusskeks", "desc-peanutcookie": "Keks mit Erdnüssen, innen weich und außen knusprig.", "ing-peanutcookie": "<b>Zutaten:</b> Erdnuss, Mehl, Butter",
-            "item-cookie": "Hausgemachter Keks", "desc-cookie": "Frisch gebackene hausgemachte Kekse in 5 Sorten.", "ing-cookie": "<b>Sorten:</b> Haselnuss, Waldfrucht, Orange, Kakao, Natur",
-            
-            // BITES TRANSLATIONS
-            "title-bites": "SuperBite Variationen",
-            "desc-bites-section": "Gesunde, proteinreiche Spezialsnacks (Tam Labs)",
-            "desc-bite-tahini": "Datteln, Tahini, Erbsenprotein, Cashewnüsse, glutenfreier Hafer.",
-            "desc-bite-peanut": "Erdnüsse, Datteln, Erbsenprotein, glutenfreier Hafer.",
-            "desc-bite-framboise": "Pistazien, Himbeeren, Datteln, glutenfreier Hafer.",
-            "desc-bite-bounty": "Kokosnuss, Datteln, Kakao, Erbsenprotein.",
-            "desc-bite-tutti": "Trockenfrüchte, Mandeln, Datteln, Erbsenprotein.",
-            "desc-bite-cookie": "Mandelmehl, Schokoladenstückchen, Datteln, Erbsenprotein.",
-            "desc-bite-caramel": "Karamell, Meersalz, Datteln, Mandeln, Erbsenprotein.",
-            "desc-bite-matcha": "Matcha, Pistazien, Datteln, Erbsenprotein.",
-            "desc-bite-lemon": "Zitrone, Mandeln, Datteln, Erbsenprotein.",
-            "desc-bite-twist": "Doppelt geröstetes Tahini, Datteln, Walnüsse, Erbsenprotein.",
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 md:p-10 border border-vena-stone shadow-sm rounded-xl fade-in">
+                <div class="w-12 h-12 bg-vena-light rounded-full flex items-center justify-center mb-6 border border-vena-stone">
+                    <svg class="w-6 h-6 text-vena-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path></svg>
+                </div>
+                <h3 class="font-serif text-2xl text-vena-dark mb-3">Sadece Fotoğraf</h3>
+                <p class="text-sm font-light text-vena-muted leading-relaxed">
+                    Video, reels veya hareketli format kullanılmayacak. Yüksek enstantane ile <strong>anı donduran aksiyon kareleri</strong> (buzun düşüşü, köpük dokusu) çekilecek.
+                </p>
+            </div>
 
-            "footer-info": "Preise gültig ab 01.05.2026.",
-<!-- ... existing code ... -->
-            "item-peanutcookie": "Cookie aux Cacahuètes", "desc-peanutcookie": "Cookie spécial avec des cacahuètes, moelleux dedans, croquant dehors.", "ing-peanutcookie": "<b>Ingrédients:</b> Cacahuètes, farine, beurre",
-            "item-cookie": "Cookie Maison", "desc-cookie": "Cookies maison fraîchement cuits en 5 variétés.", "ing-cookie": "<b>Variétés:</b> Noisette, fruits des bois, orange, cacao, nature",
+            <div class="bg-white p-8 md:p-10 border border-vena-stone shadow-sm rounded-xl fade-in">
+                <div class="w-12 h-12 bg-vena-light rounded-full flex items-center justify-center mb-6 border border-vena-stone">
+                    <svg class="w-6 h-6 text-vena-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path><line x1="3" y1="3" x2="21" y2="21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line></svg>
+                </div>
+                <h3 class="font-serif text-2xl text-vena-dark mb-3">Modelsiz (Still Life)</h3>
+                <p class="text-sm font-light text-vena-muted leading-relaxed">
+                    İnsan bedeni, el, kol veya bilek <strong>kesinlikle kadraja girmeyecek.</strong> Ürünler birer sanat eseri gibi konumlandırılacak. Teras manzarası arka planda ürüne eşlik edecek.
+                </p>
+            </div>
 
-            // BITES TRANSLATIONS
-            "title-bites": "Variétés SuperBite",
-            "desc-bites-section": "Collations spéciales saines et riches en protéines (Tam Labs)",
-            "desc-bite-tahini": "Dattes, tahini, protéine de pois, noix de cajou, avoine sans gluten.",
-            "desc-bite-peanut": "Cacahuètes, dattes, protéine de pois, avoine sans gluten.",
-            "desc-bite-framboise": "Pistaches, framboises, dattes, avoine sans gluten.",
-            "desc-bite-bounty": "Noix de coco, dattes, cacao, protéine de pois.",
-            "desc-bite-tutti": "Fruits secs, amandes, dattes, protéine de pois.",
-            "desc-bite-cookie": "Farine d'amande, pépites de chocolat, dattes, protéine de pois.",
-            "desc-bite-caramel": "Caramel, sel de mer, dattes, amandes, protéine de pois.",
-            "desc-bite-matcha": "Matcha, pistaches, dattes, protéine de pois.",
-            "desc-bite-lemon": "Citron, amandes, dattes, protéine de pois.",
-            "desc-bite-twist": "Tahini doublement torréfié, dattes, noix, protéine de pois.",
+            <div class="bg-vena-dark text-white p-8 md:p-10 border border-vena-dark shadow-xl rounded-xl fade-in transform md:-translate-y-4">
+                <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-6 border border-white/20">
+                    <svg class="w-6 h-6 text-vena-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                </div>
+                <h3 class="font-serif text-2xl text-white mb-3">Ulaşılabilir Styling</h3>
+                <ul class="text-sm font-light text-gray-400 space-y-3">
+                    <li><span class="text-vena-accent mr-2">✦</span> <strong>Sadece</strong> Vena premium takeaway bardakları (Kağıt peçete kullanılmayacak).</li>
+                    <li><span class="text-vena-accent mr-2">✦</span> Taze nane, lime, çilek, yeşil elma, kızılcık veya donuk orman meyvesi.</li>
+                    <li><span class="text-vena-accent mr-2">✦</span> Güneş gözlüğü, sade cep telefonu, şık cam karıştırıcı.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-            "footer-info": "Prix valables à partir du 01.05.2026.",
-<!-- ... existing code ... -->
+    <!-- 2. Mocktail Serisi (10 Ürün) -->
+    <section id="mocktails" class="py-24 bg-white border-y border-vena-stone">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 fade-in">
+                <div>
+                    <span class="text-vena-accent tracking-[0.2em] text-sm uppercase mb-2 block font-medium">Bölüm 01</span>
+                    <h2 class="text-4xl md:text-5xl font-serif text-vena-dark">Mocktail & Frozen Serisi</h2>
+                </div>
+                <div class="mt-4 md:mt-0 text-vena-muted text-sm tracking-wider uppercase bg-vena-light px-4 py-2 rounded-full border border-vena-stone">
+                    10 Özel Çekim Açısı
+                </div>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Drink 1: Yuzu Mint -->
+                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
+                    <div class="h-64 overflow-hidden relative bg-gray-200">
+                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=800&auto=format&fit=crop');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
+                            <span class="text-white font-serif text-2xl tracking-wide">Yuzu Mint</span>
+                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Yeşil çay, nane, chia</p>
+                        <div class="bg-vena-light p-4 rounded-xl">
+                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
+                            <p class="text-sm font-light text-vena-muted leading-relaxed">
+                                Hafif çapraz üstten (45 derece) natürmort çekim. Bardak içindeki chia tohumlarının dağılımı ve yüzeydeki taze nane yaprağı net görünmeli.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 2: Sorrel Mist -->
+                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
+                    <div class="h-64 overflow-hidden relative bg-gray-200">
+                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1556881286-fc6915169721?q=80&w=800&auto=format&fit=crop');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
+                            <span class="text-white font-serif text-2xl tracking-wide">Sorrel Mist</span>
+                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Yeşil elma, kuzu kulağı</p>
+                        <div class="bg-vena-light p-4 rounded-xl">
+                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
+                            <p class="text-sm font-light text-vena-muted leading-relaxed">
+                                Göz hizasından biraz aşağıda (low angle). Arkaya gökyüzü veya teras boşluğunu alarak içeceğin botanik ferahlığını ve renk tonunu güçlendir.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 3: Yuzu Cranberry -->
+                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
+                    <div class="h-64 overflow-hidden relative bg-gray-200">
+                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1595981267035-7b04d84b4e1e?q=80&w=800&auto=format&fit=crop');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
+                            <span class="text-white font-serif text-2xl tracking-wide">Yuzu Cranberry</span>
+                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Kızılcık, Küba nanesi</p>
+                        <div class="bg-vena-light p-4 rounded-xl">
+                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
+                            <p class="text-sm font-light text-vena-muted leading-relaxed">
+                                Tam karşıdan, sıkı ürün kadrajı. İçecekteki yoğun kırmızı ton ile nanenin yeşil kontrastını tek bir düzlemde parlat. Arka plan tamamen flu.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 4: Hibiscus -->
+                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
+                    <div class="h-64 overflow-hidden relative bg-gray-200">
+                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1546171753-97d7676e4602?q=80&w=800&auto=format&fit=crop');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
+                            <span class="text-white font-serif text-2xl tracking-wide">Hibiscus</span>
+                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Çiçeksi, sade hibiskus</p>
+                        <div class="bg-vena-light p-4 rounded-xl">
+                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
+                            <p class="text-sm font-light text-vena-muted leading-relaxed">
+                                Ters ışık (Backlight). Gün ışığının bardağın içinden geçip sıvının saydamlığını ve yakut rengini parlattığı, gölgeli dramatik estetik fotoğraf.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 5: Berry Hibiscus -->
+                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
+                    <div class="h-64 overflow-hidden relative bg-gray-200">
+                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1497534446932-c925b458314e?q=80&w=800&auto=format&fit=crop');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
+                            <span class="text-white font-serif text-2xl tracking-wide">Berry Hibiscus</span>
+                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Orman meyveleri, hibiskus</p>
+                        <div class="bg-vena-light p-4 rounded-xl">
+                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
+                            <p class="text-sm font-light text-vena-muted leading-relaxed">
+                                Tam kuşbakışı (Overhead). Yüzeyde yüzen donuk/taze orman meyvesi parçalarına ve büyük buz kütlelerinin dokusuna odaklanılan makro kare.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 6: Cool Lime -->
+                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
+                    <div class="h-64 overflow-hidden relative bg-gray-200">
+                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=800&auto=format&fit=crop');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
+                            <span class="text-white font-serif text-2xl tracking-wide">Cool Lime</span>
+                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Lime, nane, ferahlık</p>
+                        <div class="bg-vena-light p-4 rounded-xl">
+                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
+                            <p class="text-sm font-light text-vena-muted leading-relaxed">
+                                Çok sıkı makro kadraj. Sadece bardağın dışındaki buğulanmaya (condensation), su damlacıklarına ve içerdeki lime dokusuna odaklan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 7: Strawberry Lime -->
+                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
+                    <div class="h-64 overflow-hidden relative bg-gray-200">
+                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1595981267035-7b04d84b4e1e?q=80&w=800&auto=format&fit=crop');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
+                            <span class="text-white font-serif text-2xl tracking-wide">Strawberry Lime</span>
+                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Çilek, lime</p>
+                        <div class="bg-vena-light p-4 rounded-xl">
+                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
+                            <p class="text-sm font-light text-vena-muted leading-relaxed">
+                                Teras korkuluğu veya masa kenarı üzerinde <strong class="text-vena-dark">tek başına duran bardak.</strong> Model yok. Ürün detayları net, arkadaki Ankara manzarası bokeh.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 8: Dragon Bull -->
+                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
+                    <div class="h-64 overflow-hidden relative bg-gray-200">
+                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=800&auto=format&fit=crop');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
+                            <span class="text-white font-serif text-2xl tracking-wide">Dragon Bull</span>
+                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Ejder meyvesi, Red Bull</p>
+                        <div class="bg-vena-light p-4 rounded-xl">
+                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
+                            <p class="text-sm font-light text-vena-muted leading-relaxed">
+                                Geniş still-life masa kompozisyonu. Enerjik pembe rengi; masadaki güneş gözlüğü, cep telefonu ve markalı Vena ambalajıyla yan yana kurgula.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 9: Raspberry Cream -->
+                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
+                    <div class="h-64 overflow-hidden relative bg-gray-200">
+                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1572490122747-3968b75bb699?q=80&w=800&auto=format&fit=crop');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
+                            <span class="text-white font-serif text-2xl tracking-wide">Raspberry Cream</span>
+                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Frambuaz, kaymak/krema</p>
+                        <div class="bg-vena-light p-4 rounded-xl">
+                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
+                            <p class="text-sm font-light text-vena-muted leading-relaxed">
+                                Yan profil, tam göz hizası. Üstteki krema tabakası ile alttaki frambuazın renk geçişini (gradient) ve kremsi dokuyu pürüzsüzce yakala.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink 10: Popcorn Kiss -->
+                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl lg:col-start-2">
+                    <div class="h-64 overflow-hidden relative bg-gray-200">
+                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?q=80&w=800&auto=format&fit=crop');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
+                            <span class="text-white font-serif text-2xl tracking-wide">Popcorn Kiss</span>
+                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Karamelize patlamış mısır</p>
+                        <div class="bg-vena-light p-4 rounded-xl">
+                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
+                            <p class="text-sm font-light text-vena-muted leading-relaxed">
+                                Üstteki garnitüre (mısır/karamel) yakın plan (close-up). Arka planda masa üstünde duran Vena menüsü bulunsun ancak yazıları zarifçe flu (bokeh) olsun.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Mindful Mixology -->
+    <section id="mixology" class="py-24 bg-vena-light">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 fade-in">
+                <div>
+                    <span class="text-vena-accent tracking-[0.2em] text-sm uppercase mb-2 block font-medium">Bölüm 02</span>
+                    <h2 class="text-4xl md:text-5xl font-serif text-vena-dark">Mindful Mixology</h2>
+                </div>
+                <div class="mt-4 md:mt-0 text-vena-muted text-sm tracking-wider uppercase bg-white px-4 py-2 rounded-full border border-vena-stone shadow-sm">
+                    Premium Atmosfer
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Mixology 1 -->
+                <div class="group fade-in bg-vena-dark text-white rounded-2xl overflow-hidden shadow-lg border border-vena-dark/50">
+                    <div class="h-56 overflow-hidden relative bg-black">
+                        <div class="absolute inset-0 image-card-bg opacity-70" style="background-image: url('https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=800&auto=format&fit=crop');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl text-white mb-3">Coffee Negroni</h3>
+                        <p class="text-sm font-light text-gray-400 leading-relaxed">
+                            Koyu ahşap veya siyah zemin üzerinde salt ürün karesi. Espresso köpüğünün makro yüzey dokusu. Tam akşamüstü ışığında dramatik kontrast yaratılarak çekilecek.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Mixology 2 -->
+                <div class="group fade-in bg-vena-dark text-white rounded-2xl overflow-hidden shadow-lg border border-vena-dark/50">
+                    <div class="h-56 overflow-hidden relative bg-black">
+                        <div class="absolute inset-0 image-card-bg opacity-70" style="background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=800&auto=format&fit=crop');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl text-white mb-3">Orange & Classic Duo</h3>
+                        <p class="text-sm font-light text-gray-400 leading-relaxed">
+                            İkili natürmort kompozisyon. Portakal kabuğu kıvrımı ve kristalize buz kütlesi ön planda. Arkadaki teras ışıkları yavaş yavaş yanarken estetik karanlık (moody) çekim.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Mixology 3 -->
+                <div class="group fade-in bg-vena-dark text-white rounded-2xl overflow-hidden shadow-lg border border-vena-dark/50">
+                    <div class="h-56 overflow-hidden relative bg-black">
+                        <div class="absolute inset-0 image-card-bg opacity-70" style="background-image: url('https://images.unsplash.com/photo-1555507036-ab1e4006aa07?q=80&w=800&auto=format&fit=crop');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl text-white mb-3">Top-down Atmosfer</h3>
+                        <p class="text-sm font-light text-gray-400 leading-relaxed">
+                            Yukarıdan (overhead) genel masa çekimi. Sadece masada duran ürünler: En az 4 farklı içecek, markalı Vena takeaway bardakları, menü ve küçük botanik dallar.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-vena-dark py-16 text-center text-white/40 text-xs tracking-widest font-light">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <p class="font-serif text-xl text-white mb-4 md:mb-0">VENA COFFEE CO.</p>
+            <div class="space-x-4">
+                <span>Atakule Teras Çekimi</span>
+                <span class="text-vena-accent">•</span>
+                <span>Durağan & Modelsiz Fotoğraf Koleksiyonu</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Intersection Observer for scroll animations
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+
+            // Navbar background transition on scroll
+            const navbar = document.getElementById('navbar');
+            const navBrand = document.getElementById('nav-brand');
+            const navLinks = document.getElementById('nav-links');
+            const navAnchors = navLinks.querySelectorAll('a');
+            const navMobileIcon = document.getElementById('nav-mobile-icon');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-4');
+                    navbar.classList.remove('py-5', 'bg-transparent');
+                    navBrand.classList.remove('text-white');
+                    navBrand.classList.add('text-vena-dark');
+                    navMobileIcon.classList.remove('text-white');
+                    navMobileIcon.classList.add('text-vena-dark');
+                    navAnchors.forEach(a => {
+                        a.classList.remove('text-white');
+                        a.classList.add('text-vena-dark');
+                    });
+                } else {
+                    navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-4');
+                    navbar.classList.add('py-5', 'bg-transparent');
+                    navBrand.classList.add('text-white');
+                    navBrand.classList.remove('text-vena-dark');
+                    navMobileIcon.classList.add('text-white');
+                    navMobileIcon.classList.remove('text-vena-dark');
+                    navAnchors.forEach(a => {
+                        a.classList.add('text-white');
+                        a.classList.remove('text-vena-dark');
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
