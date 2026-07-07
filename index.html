@@ -1,535 +1,2256 @@
+ChatGPT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Yapıştırılan kod(1).html
+Dosya
+vena coffee co. için çekim planı hazırladım. https://venacoffeeco.com/menu/ bu menü
+
+Aşağıda tek dosya çalışan bir mobil responsive HTML web sitesi vereceğim. İçerik tamamen son revizyona göre: teras + iç mekân ahşap masa + derin perspektif, modelsiz ve yalnızca ürün çekimi.
+
+18s boyunca düşündüm
+Aşağıdaki kodu index.html olarak kaydedip direkt tarayıcıda açabilirsin. Mevcut modelsiz / still-life çekim yaklaşımını koruyarak hazırladım 
+
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vena Coffee Co. | Görsel Çekim Planı</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        vena: {
-                            dark: '#121212',
-                            light: '#f7f6f3',
-                            accent: '#8c7a6b',
-                            stone: '#e5e5e5',
-                            muted: '#737373'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['"Cormorant Garamond"', 'serif'],
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        body {
-            background-color: #f7f6f3;
-            color: #121212;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-        /* Reveal Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Backgrounds */
-        .hero-bg {
-            background: linear-gradient(to bottom, rgba(18, 18, 18, 0.5), rgba(18, 18, 18, 0.95)), url('https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=2574&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        .image-card-bg {
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.8s ease-out;
-        }
-        .group:hover .image-card-bg {
-            transform: scale(1.08);
-        }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f7f6f3; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #8c7a6b; 
-            border-radius: 10px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vena Coffee Co. | Mekân İçi Ürün Çekim Planı</title>
+
+  <style>
+    :root {
+      --dark: #121212;
+      --cream: #f7f3ec;
+      --paper: #fffaf6;
+      --stone: #e4d8ca;
+      --muted: #776d63;
+      --accent: #8c6f59;
+      --accent-soft: #d8c2ad;
+      --wood: #8a5f3f;
+      --terrace: #b9c9c7;
+      --green: #7f9b64;
+      --red: #9d3040;
+      --pink: #d05b86;
+      --orange: #d58a43;
+      --coffee: #4a2f24;
+      --shadow: 0 18px 50px rgba(18, 18, 18, 0.10);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Arial, sans-serif;
+      color: var(--dark);
+      background:
+        radial-gradient(circle at top left, rgba(140,111,89,.18), transparent 35rem),
+        radial-gradient(circle at top right, rgba(185,201,199,.22), transparent 32rem),
+        linear-gradient(180deg, var(--cream), #fff);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 243, 236, 0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(228, 216, 202, 0.75);
+    }
+
+    .nav {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 15px;
+    }
+
+    .brand span {
+      margin-top: 7px;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: .16em;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-links a {
+      white-space: nowrap;
+      padding: 10px 14px;
+      border: 1px solid var(--stone);
+      border-radius: 999px;
+      background: rgba(255, 250, 246, 0.72);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      transition: .25s ease;
+    }
+
+    .nav-links a:hover {
+      background: var(--dark);
+      color: #fff;
+      border-color: var(--dark);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: calc(100svh - 74px);
+      display: grid;
+      grid-template-columns: 1.06fr .94fr;
+      align-items: center;
+      gap: 46px;
+      padding: 64px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(140, 111, 89, .28);
+      background: rgba(255, 250, 246, .68);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(140, 111, 89, .12);
+    }
+
+    h1 {
+      margin: 24px 0 20px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(48px, 8vw, 102px);
+      line-height: .9;
+      font-weight: 500;
+      letter-spacing: -.06em;
+    }
+
+    .hero-text {
+      max-width: 650px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.72;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap
+
+çekim 08.30 da başlayacak, 4 saat sürecek  son 15 dk mekanda çekimler yapılacak
+
+13s boyunca düşündüm
+Tamam, çekim akışını 08:30 başlangıç / toplam 4 saat / son 15 dakika mekân genel çekimleri olarak güncelliyoruz. Mevcut modelsiz ürün çekimi kuralı aynı kalıyor 
+
+
+HTML’de #schedule bölümünü aşağıdaki blokla değiştir:
+
+<section id="schedule" class="section schedule-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Çekim Akışı</span>
+      <h2>08:30 — 12:30 Ürün Çekim Planı</h2>
+      <p>
+        Çekim toplam 4 saat sürecek. İlk 3 saat 45 dakika yalnızca ürün çekimlerine,
+        son 15 dakika ise Vena Coffee Co. mekân atmosferi, teras ve iç mekân detaylarına ayrılacak.
+      </p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="time">08:30 — 08:45</div>
+        <div class="timeline-content">
+          <h3>Kurulum & Işık Testi</h3>
+          <p>
+            Teras ve iç mekândaki ahşap masalar seçilir. Derin perspektif arka planlar kontrol edilir.
+            Bardak, buz, meyve ve minimal styling malzemeleri hazırlanır.
+          </p>
+          <ul>
+            <li>Model, el veya insan kadrajı yok.</li>
+            <li>9:16 story ve 4:5 feed kırpımı için boşluk kontrol edilir.</li>
+            <li>Ahşap masa yüzeyi, teras arka planı ve flu derinlik test edilir.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time">08:45 — 09:25</div>
+        <div class="timeline-content">
+          <h3>Elixir Lab / Frozen Detox</h3>
+          <p>
+            Sabah ışığında clean, wellness ve fresh hissi verecek ürünler çekilir.
+          </p>
+          <ul>
+            <li>Green Detox</li>
+            <li>Orange Detox</li>
+            <li>Red Detox</li>
+          </ul>
+          <p class="note">
+            Styling: salatalık, yeşil elma, lime, portakal, ananas, zencefil, pancar/havuç detayı ve taze nane.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time">09:25 — 10:35</div>
+        <div class="timeline-content">
+          <h3>Mocktail / Frozen — Ferah Seri</h3>
+          <p>
+            Teras ve pencere kenarı ahşap masalarda, ferah ve ışıklı ürün kareleri alınır.
+          </p>
+          <ul>
+            <li>Yuzu Mint</li>
+            <li>Sorrel Mist</li>
+            <li>Yuzu Cranberry</li>
+            <li>Hibiscus</li>
+            <li>Berry Hibiscus</li>
+            <li>Cool Lime</li>
+            <li>Strawberry Lime</li>
+          </ul>
+          <p class="note">
+            Styling: nane, lime, çilek, chia, yeşil elma, kızılcık/orman meyvesi ve buz.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time">10:35 — 11:10</div>
+        <div class="timeline-content">
+          <h3>Mocktail / Frozen — Renkli Kahramanlar</h3>
+          <p>
+            Daha yoğun renkli ve karakterli ürünler iç mekân ahşap masada veya kontrollü teras ışığında çekilir.
+          </p>
+          <ul>
+            <li>Dragon Bull</li>
+            <li>Raspberry Cream</li>
+            <li>Popcorn Kiss</li>
+          </ul>
+          <p class="note">
+            Styling sade tutulur: ejder meyvesi, frambuaz, karamelize popcorn ve buz.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time">11:10 — 11:35</div>
+        <div class="timeline-content">
+          <h3>Milkshake Serisi</h3>
+          <p>
+            İç mekândaki ahşap masalarda kremamsı, tatlı ve sade ürün kareleri alınır.
+          </p>
+          <ul>
+            <li>Milkshake — Çikolata</li>
+            <li>Milkshake — Çilek</li>
+            <li>Milkshake — Muz</li>
+            <li>Milkshake — Vanilya</li>
+          </ul>
+          <p class="note">
+            Styling: küçük çikolata parçası, çilek, muz dilimi veya vanilya hissi veren sade detaylar.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time">11:35 — 12:15</div>
+        <div class="timeline-content">
+          <h3>Mindful Mixology / Negroni & Gin Serisi</h3>
+          <p>
+            İç mekân ahşap masalarda daha premium, sakin ve sofistike kareler çekilir.
+          </p>
+          <ul>
+            <li>Coffee Negroni</li>
+            <li>Classic Negroni</li>
+            <li>Orange Negroni</li>
+            <li>Gin Soda</li>
+            <li>Gin Tonik</li>
+            <li>Gin Bull</li>
+          </ul>
+          <p class="note">
+            Styling: büyük buz, portakal kabuğu, lime, nane, çok az kahve çekirdeği ve sade cam karıştırıcı.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item highlight">
+        <div class="time">12:15 — 12:30</div>
+        <div class="timeline-content">
+          <h3>Son 15 Dakika — Mekân Atmosfer Çekimleri</h3>
+          <p>
+            Ürün çekimleri tamamlandıktan sonra Vena Coffee Co.’nun mekân hissini destekleyen
+            genel atmosfer kareleri alınır.
+          </p>
+          <ul>
+            <li>Teras genel masa görünümü</li>
+            <li>Ahşap masa yüzey detayları</li>
+            <li>Derin perspektif iç mekân arka planı</li>
+            <li>Boş masa, bardak ve menü detayları</li>
+            <li>Atakule / teras atmosferi</li>
+          </ul>
+          <p class="note">
+            Bu bölümde de model, el veya müşteri kadrajı kullanılmayacak. Mekân boş, temiz ve premium görünecek.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+Bunun için CSS’e de şu eklemeyi yap:
+
+.schedule-section {
+  padding: 72px 0;
+}
+
+.timeline {
+  display: grid;
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 20px;
+  padding: 22px;
+  border: 1px solid var(--stone);
+  border-radius: 28px;
+  background: rgba(255, 250, 246, 0.82);
+  box-shadow: 0 12px 34px rgba(18, 18, 18, 0.06);
+}
+
+.timeline-item.highlight {
+  background: var(--dark);
+  color: #fff;
+  border-color: var(--dark);
+}
+
+.timeline-item.highlight p,
+.timeline-item.highlight li,
+.timeline-item.highlight .note {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.time {
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: .08em;
+  font-size: 14px;
+}
+
+.timeline-item.highlight .time {
+  color: var(--accent-soft);
+}
+
+.timeline-content h3 {
+  margin: 0 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -.03em;
+}
+
+.timeline-content p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.timeline-content ul {
+  margin: 12px 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.note {
+  font-size: 14px;
+  border-top: 1px solid rgba(140, 111, 89, 0.18);
+  padding-top: 12px;
+}
+
+@media (max-width: 720px) {
+  .timeline-item {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .time {
+    font-size: 13px;
+  }
+
+  .timeline-content h3 {
+    font-size: 24px;
+  }
+}
+Net akış böyle olmalı:
+
+08:30–08:45 kurulum
+08:45–09:25 Elixir Lab
+09:25–10:35 Mocktail / Frozen ana seri
+10:35–11:10 Dragon Bull, Raspberry Cream, Popcorn Kiss
+11:10–11:35 Milkshake
+11:35–12:15 Negroni & Gin serisi
+12:15–12:30 sadece mekân atmosfer çekimleri
+
+
+kodu tek seferde ver bütün çekim planının ve ön izleme göster mobil responsive site olacak gömeceğim
+
+Tek dosya, gömülebilir HTML olarak hazırlayacağım ve yanında bir mobil ön izleme görseli de üreteceğim. İçerik tamamen son brief’e göre olacak: 08:30 başlangıç, 4 saatlik akış, son 15 dakika mekân çekimi, ürünler tek tek ve styling sade.
+
+35s boyunca düşündüm
+Dosyayı oluşturdum; ön izleme için ilk render denemesinde tarayıcı motoru senkron/asenkron uyumsuzluğu verdi, şimdi aynı HTML’den gerçek mobil ekran görüntüsünü asenkron yöntemle tekrar alıyorum. 
+
+Tarayıcı kütüphanesinin kendi Chromium’u kurulu değilmiş; sistemdeki Chromium yolu mevcut olduğu için aynı render işlemini onunla alıyorum. 
+
+Hazır semay. Bütün çekim planını tek dosyalık, mobil responsive HTML web sitesi olarak hazırladım. Mevcut “modelsiz / sadece ürün / still-life” yaklaşımını korudum 
+
+ ve son brief’e göre akışı 08:30 başlangıç, 4 saat çekim, son 15 dakika mekân atmosfer çekimi olarak işledim.
+
+HTML dosyası:
+vena-coffee-cekim-plani-mobil-responsive.html
+
+Mobil ön izleme:
+Mobil ön izleme
+Mobil ön izleme
+Mobil ön izleme
+
+Paylaş
+
+PDF render ön izleme:
+vena-coffee-cekim-plani-preview-render.pdf
+
+Gömme için temel kullanım:
+
+<iframe 
+  src="vena-coffee-cekim-plani-mobil-responsive.html"
+  style="width:100%; height:100vh; border:0;"
+  title="Vena Coffee Co. Çekim Planı">
+</iframe>
+Dosya dış kütüphane gerektirmiyor; CSS ve JS tek HTML dosyasının içinde. Filtreleme, mobil uyum, ürün kartları, styling listesi, mekân planı ve çekim timeline’ı tamamlandı. 
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vena Coffee Co. için mobil responsive, modelsiz, mekân içi ürün çekim planı." />
+  <title>Vena Coffee Co. | Mekân İçi Ürün Çekim Planı</title>
+
+  <style>
+    :root {
+      --ink: #111111;
+      --ink-soft: #2a2520;
+      --cream: #f7f2ea;
+      --paper: #fffaf3;
+      --paper-2: #fbf0e5;
+      --stone: #e4d7c7;
+      --muted: #756a60;
+      --accent: #8c6f59;
+      --accent-2: #b89574;
+      --wood: #8b5e3c;
+      --wood-dark: #4d2f1f;
+      --terrace: #aebfbd;
+      --green: #7f9b64;
+      --mint: #93b681;
+      --lime: #c7da68;
+      --red: #9d3040;
+      --berry: #7b3b60;
+      --pink: #d05b86;
+      --dragon: #d33d98;
+      --orange: #d58a43;
+      --coffee: #4a2f24;
+      --shadow: 0 18px 50px rgba(17, 17, 17, 0.10);
+      --shadow-soft: 0 8px 26px rgba(17, 17, 17, 0.06);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(140, 111, 89, .18), transparent 36rem),
+        radial-gradient(circle at top right, rgba(174, 191, 189, .24), transparent 34rem),
+        linear-gradient(180deg, var(--cream), #fff 58%, var(--cream));
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 242, 234, .84);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(228, 215, 199, .85);
+    }
+
+    .nav {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      text-transform: uppercase;
+      font-weight: 850;
+      letter-spacing: .18em;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+
+    .brand small {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .16em;
+      font-weight: 520;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      max-width: 70%;
+      padding: 2px 0;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-links a,
+    .filter-btn {
+      appearance: none;
+      border: 1px solid var(--stone);
+      background: rgba(255, 250, 243, .78);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 10px 13px;
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: .075em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: transform .22s ease, background .22s ease, border-color .22s ease, color .22s ease;
+    }
+
+    .nav-links a:hover,
+    .filter-btn:hover,
+    .filter-btn.active {
+      transform: translateY(-1px);
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: calc(100svh - 74px);
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 44px;
+      padding: 62px 0 54px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 9px 14px;
+      border: 1px solid rgba(140, 111, 89, .28);
+      border-radius: 999px;
+      background: rgba(255, 250, 243, .72);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(140, 111, 89, .12);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+    }
+
+    h1 {
+      margin: 24px 0 20px;
+      font-size: clamp(48px, 8vw, 104px);
+      line-height: .9;
+      letter-spacing: -.064em;
+    }
+
+    .hero-text {
+      margin: 0;
+      max-width: 660px;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.72;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--stone);
+    }
+
+    .hero-card {
+      min-height: 548px;
+      position: relative;
+      border-radius: 42px;
+      overflow: hidden;
+      background:
+        linear-gradient(160deg, rgba(17,17,17,.14), transparent 32%),
+        linear-gradient(180deg, #fff8ef, #ead7c2);
+      border: 1px solid rgba(228, 215, 199, .95);
+      box-shadow: var(--shadow);
+    }
+
+    .perspective-room {
+      position: absolute;
+      inset: 24px;
+      border-radius: 34px;
+      overflow: hidden;
+      background:
+        linear-gradient(115deg, rgba(255,255,255,.12), transparent 35%),
+        linear-gradient(180deg, rgba(248,237,226,1), rgba(216,190,166,1));
+      border: 1px solid rgba(255,255,255,.8);
+    }
+
+    .perspective-room::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, transparent 0 16%, rgba(77,47,31,.13) 16.2% 16.6%, transparent 16.8% 32%, rgba(77,47,31,.10) 32.2% 32.6%, transparent 32.8% 50%, rgba(77,47,31,.09) 50.2% 50.5%, transparent 50.8% 67%, rgba(77,47,31,.08) 67.2% 67.6%, transparent 67.8% 84%, rgba(77,47,31,.09) 84.2% 84.6%, transparent 84.8% 100%);
+      opacity: .62;
+      transform: perspective(600px) rotateX(0deg);
+    }
+
+    .table {
+      position: absolute;
+      left: -18%;
+      right: -18%;
+      bottom: -8%;
+      height: 45%;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 2px, transparent 2px 54px),
+        linear-gradient(180deg, var(--wood), var(--wood-dark));
+      transform: perspective(460px) rotateX(53deg);
+      transform-origin: bottom;
+      box-shadow: 0 -30px 60px rgba(17,17,17,.12);
+    }
+
+    .terrace-line {
+      position: absolute;
+      left: 9%;
+      right: 9%;
+      top: 38%;
+      height: 2px;
+      background: rgba(17,17,17,.16);
+    }
+
+    .hero-product {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 164px;
+      height: 232px;
+      transform: translate(-50%, -40%) rotate(-3deg);
+      border-radius: 28px 28px 48px 48px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.78), rgba(255,255,255,.18) 25%, transparent 52%),
+        linear-gradient(180deg, rgba(255,255,255,.30), transparent),
+        var(--dragon);
+      border: 1px solid rgba(255,255,255,.62);
+      box-shadow: 0 28px 62px rgba(17,17,17,.20);
+    }
+
+    .hero-product::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      top: 18px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.36);
+      border: 1px solid rgba(255,255,255,.55);
+    }
+
+    .hero-product::after {
+      content: "VENA";
+      position: absolute;
+      left: 50%;
+      top: 52%;
+      transform: translate(-50%, -50%);
+      color: rgba(255,255,255,.78);
+      font-weight: 900;
+      letter-spacing: .34em;
+      font-size: 18px;
+    }
+
+    .prop {
+      position: absolute;
+      filter: drop-shadow(0 14px 22px rgba(17,17,17,.14));
+      opacity: .92;
+    }
+
+    .prop.lime {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      left: 24%;
+      top: 56%;
+      background: var(--lime);
+    }
+
+    .prop.leaf {
+      width: 68px;
+      height: 32px;
+      border-radius: 70px 0 70px 0;
+      right: 22%;
+      top: 31%;
+      background: var(--green);
+      transform: rotate(-24deg);
+    }
+
+    .prop.ice {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      right: 28%;
+      bottom: 30%;
+      background: rgba(255,255,255,.52);
+      border: 1px solid rgba(255,255,255,.72);
+      transform: rotate(22deg);
+    }
+
+    .hero-badges {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .badge {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,250,243,.78);
+      border: 1px solid rgba(228,215,199,.88);
+      backdrop-filter: blur(12px);
+    }
+
+    .badge strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .badge span {
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.35;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 750;
+    }
+
+    /* Sections */
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .section-head h2 {
+      margin: 16px 0 0;
+      font-size: clamp(34px, 5vw, 60px);
+      line-height: .98;
+      letter-spacing: -.046em;
+    }
+
+    .section-head p {
+      max-width: 720px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      line-height: 1.68;
+      font-size: 15.5px;
+    }
+
+    .section-pill {
+      border: 1px solid var(--stone);
+      background: var(--paper);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* Rules */
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .rule-card {
+      min-height: 154px;
+      padding: 20px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,250,243,.78);
+      border: 1px solid var(--stone);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .rule-card b {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .rule-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.58;
+      font-size: 14px;
+    }
+
+    /* Timeline */
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 20px;
+      padding: 22px;
+      border-radius: 28px;
+      background: rgba(255,250,243,.82);
+      border: 1px solid var(--stone);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .timeline-item.highlight {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    .time {
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    .timeline-item.highlight .time {
+      color: var(--accent-2);
+    }
+
+    .timeline-content h3 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      letter-spacing: -.03em;
+    }
+
+    .timeline-content p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height: 1.64;
+      font-size: 15px;
+    }
+
+    .timeline-content ul {
+      margin: 12px 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 14.5px;
+    }
+
+    .timeline-content .note {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(140,111,89,.20);
+      font-size: 14px;
+    }
+
+    .timeline-item.highlight .timeline-content p,
+    .timeline-item.highlight .timeline-content ul,
+    .timeline-item.highlight .timeline-content .note {
+      color: rgba(255,255,255,.72);
+    }
+
+    /* Filters */
+    .filter-bar {
+      position: sticky;
+      top: 74px;
+      z-index: 50;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 14px 0 16px;
+      margin: -4px 0 18px;
+      background: linear-gradient(180deg, rgba(247,242,234,.96), rgba(247,242,234,.82));
+      backdrop-filter: blur(12px);
+      scrollbar-width: none;
+    }
+
+    .filter-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Product cards */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .product-card {
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      background: var(--paper);
+      border: 1px solid var(--stone);
+      box-shadow: var(--shadow-soft);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: rgba(140,111,89,.45);
+    }
+
+    .product-visual {
+      position: relative;
+      height: 218px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 72% 22%, var(--tone-soft), transparent 8rem),
+        linear-gradient(180deg, #fff7ed, #ead5bd);
+    }
+
+    .product-visual::before {
+      content: "";
+      position: absolute;
+      left: -14%;
+      right: -14%;
+      bottom: -12%;
+      height: 44%;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,.08) 0 2px, transparent 2px 46px),
+        linear-gradient(180deg, var(--wood), var(--wood-dark));
+      transform: perspective(430px) rotateX(54deg);
+      transform-origin: bottom;
+    }
+
+    .product-visual::after {
+      content: "";
+      position: absolute;
+      left: 15%;
+      right: 15%;
+      top: 38%;
+      height: 1px;
+      background: rgba(17,17,17,.12);
+    }
+
+    .cup {
+      position: absolute;
+      left: 50%;
+      top: 53%;
+      width: 92px;
+      height: 136px;
+      transform: translate(-50%, -50%) rotate(var(--rotate));
+      border-radius: 20px 20px 34px 34px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.72), rgba(255,255,255,.16) 24%, transparent 52%),
+        linear-gradient(180deg, rgba(255,255,255,.24), transparent),
+        var(--tone);
+      border: 1px solid rgba(255,255,255,.58);
+      box-shadow: 0 20px 44px rgba(17,17,17,.16);
+      z-index: 3;
+    }
+
+    .cup::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      top: 12px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.32);
+      border: 1px solid rgba(255,255,255,.48);
+    }
+
+    .cup::after {
+      content: "VENA";
+      position: absolute;
+      left: 50%;
+      top: 52%;
+      transform: translate(-50%, -50%);
+      color: rgba(255,255,255,.76);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .25em;
+    }
+
+    .mini-prop {
+      position: absolute;
+      z-index: 2;
+      filter: drop-shadow(0 10px 18px rgba(17,17,17,.12));
+    }
+
+    .mini-prop.round {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      left: 26%;
+      top: 52%;
+      background: var(--prop);
+    }
+
+    .mini-prop.leaf {
+      width: 52px;
+      height: 24px;
+      right: 24%;
+      top: 30%;
+      border-radius: 56px 0 56px 0;
+      background: var(--green);
+      transform: rotate(-20deg);
+    }
+
+    .product-body {
+      padding: 22px;
+    }
+
+    .product-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .category {
+      color: var(--accent);
+      font-size: 10.5px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .price {
+      flex: 0 0 auto;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--stone);
+      background: #fff;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .product-card h3 {
+      margin: 0 0 9px;
+      font-size: 27px;
+      line-height: 1.08;
+      letter-spacing: -.03em;
+    }
+
+    .desc {
+      min-height: 46px;
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .shot-note,
+    .location-note,
+    .styling-note {
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(228,215,199,.88);
+      background: var(--paper-2);
+      margin-top: 10px;
+    }
+
+    .shot-note b,
+    .location-note b,
+    .styling-note b {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 11.5px;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+    }
+
+    .shot-note p,
+    .location-note p,
+    .styling-note p {
+      margin: 0;
+      color: #5f554c;
+      line-height: 1.52;
+      font-size: 13.5px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 13px;
+    }
+
+    .tag {
+      padding: 7px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(228,215,199,.9);
+      background: #fffaf3;
+      color: #5f554c;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Styling list */
+    .styling-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+    }
+
+    .panel {
+      padding: 24px;
+      border-radius: 30px;
+      background: rgba(255,250,243,.82);
+      border: 1px solid var(--stone);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .panel.dark {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    .panel h3 {
+      margin: 0 0 14px;
+      font-size: 30px;
+      letter-spacing: -.03em;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14.5px;
+    }
+
+    .panel.dark .check-list li {
+      color: rgba(255,255,255,.72);
+    }
+
+    .check-list li::before {
+      content: "•";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(140,111,89,.16);
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .panel.dark .check-list li::before {
+      background: rgba(184,149,116,.18);
+      color: var(--accent-2);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .location-card {
+      min-height: 280px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      padding: 24px;
+      color: #fff;
+      background: var(--ink);
+      box-shadow: var(--shadow);
+    }
+
+    .location-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(17,17,17,.20), rgba(17,17,17,.78)),
+        var(--loc-bg);
+      opacity: .98;
+    }
+
+    .location-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .location-card h3 {
+      margin: 0 0 12px;
+      font-size: 32px;
+      letter-spacing: -.03em;
+    }
+
+    .location-card p {
+      max-width: 490px;
+      margin: 0;
+      color: rgba(255,255,255,.76);
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 44px 0 58px;
+      border-top: 1px solid var(--stone);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        padding-top: 42px;
+      }
+
+      .hero-card {
+        min-height: 500px;
+      }
+
+      .rules-grid,
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .styling-grid,
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-pill {
+        display: inline-flex;
+        margin-top: 14px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(100% - 22px, var(--max));
+      }
+
+      .nav {
+        height: 68px;
+      }
+
+      .brand {
+        font-size: 13px;
+      }
+
+      .brand small {
+        font-size: 9px;
+      }
+
+      .nav-links {
+        max-width: 49vw;
+      }
+
+      .nav-links a,
+      .filter-btn {
+        padding: 9px 11px;
+        font-size: 10px;
+      }
+
+      .hero {
+        padding: 34px 0 32px;
+        gap: 28px;
+      }
+
+      h1 {
+        font-size: clamp(46px, 17vw, 74px);
+      }
+
+      .hero-text {
+        font-size: 15px;
+      }
+
+      .hero-actions {
+        margin-top: 24px;
+      }
+
+      .btn {
+        width: 100%;
+        min-height: 46px;
+      }
+
+      .hero-card {
+        min-height: 442px;
+        border-radius: 32px;
+      }
+
+      .perspective-room {
+        inset: 16px;
+        border-radius: 26px;
+      }
+
+      .hero-product {
+        width: 128px;
+        height: 188px;
+      }
+
+      .hero-badges {
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        grid-template-columns: 1fr;
+      }
+
+      .badge {
+        padding: 11px 13px;
+      }
+
+      .section {
+        padding: 52px 0;
+      }
+
+      .rules-grid,
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+
+      .timeline-content h3 {
+        font-size: 24px;
+      }
+
+      .filter-bar {
+        top: 68px;
+        margin-left: -11px;
+        margin-right: -11px;
+        padding-left: 11px;
+        padding-right: 11px;
+      }
+
+      .product-visual {
+        height: 206px;
+      }
+
+      .product-card h3 {
+        font-size: 25px;
+      }
+
+      .desc {
+        min-height: auto;
+      }
+
+      .panel,
+      .location-card {
+        padding: 20px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .site-header,
+      .filter-bar,
+      .hero-actions {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        display: none;
+      }
+
+      .section {
+        padding: 30px 0;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .product-card,
+      .timeline-item,
+      .rule-card,
+      .panel {
+        break-inside: avoid;
+        box-shadow: none;
+      }
+    }
+  </style>
 </head>
-<body class="font-sans antialiased selection:bg-vena-accent selection:text-white">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-500" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <div class="text-xl md:text-2xl font-serif tracking-widest text-white uppercase font-semibold transition-colors duration-500" id="nav-brand">Vena Coffee Co.</div>
-            <div class="hidden md:flex space-x-8 text-xs tracking-[0.2em] uppercase text-white font-medium transition-colors duration-500" id="nav-links">
-                <a href="#kurallar" class="hover:text-vena-accent transition-colors">Kurallar</a>
-                <a href="#mocktails" class="hover:text-vena-accent transition-colors">Seriler</a>
-                <a href="#mixology" class="hover:text-vena-accent transition-colors">Mixology</a>
-            </div>
-            <!-- Mobile Menu Icon (Visual Only) -->
-            <div class="md:hidden text-white" id="nav-mobile-icon">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </div>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Vena Coffee Co. çekim planı ana sayfa">
+        Vena Coffee Co.
+        <small>Ürün Çekim Planı</small>
+      </a>
+
+      <nav class="nav-links" aria-label="Sayfa navigasyonu">
+        <a href="#rules">Kurallar</a>
+        <a href="#timeline">Akış</a>
+        <a href="#products">Ürünler</a>
+        <a href="#styling">Styling</a>
+        <a href="#locations">Mekân</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="container hero">
+      <div>
+        <span class="eyebrow">08:30 Başlangıç · 4 Saat</span>
+        <h1>Mekân İçi<br>Ürün Çekim<br>Planı</h1>
+        <p class="hero-text">
+          Vena Coffee Co. için terasta ve iç mekândaki ahşap masalarda uygulanacak,
+          yalnızca ürün odaklı mobil responsive çekim planı. Kadrajda model, el, bilek
+          veya insan bedeni yok; ürünler gerçek mekân atmosferinde, derin perspektifli
+          flu arka planla çekilecek.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn" href="#products">Ürün listesine git</a>
+          <a class="btn secondary" href="#timeline">08:30 akışını gör</a>
         </div>
-    </nav>
+      </div>
 
-    <!-- Hero Section -->
-    <header class="hero-bg min-h-[100svh] flex flex-col justify-center items-center text-center px-6 relative">
-        <div class="max-w-4xl fade-in mt-16">
-            <span class="text-vena-accent tracking-[0.3em] text-xs md:text-sm uppercase mb-6 block font-semibold">Görsel Çekim Rehberi</span>
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-tight">Atakule Teras<br><span class="italic font-light text-white/90">Koleksiyonu</span></h1>
-            <p class="text-gray-300 text-base md:text-xl font-light mb-12 max-w-2xl mx-auto leading-relaxed">
-                Tamamen still-life ve natürmort odaklı; modelsiz, durağan ve estetik. Vena'nın alkolsüz, ferah ve botanik dünyasını fotoğraflarla donduruyoruz.
+      <aside class="hero-card" aria-label="Ahşap masa ve derin perspektif ürün çekimi temsili">
+        <div class="perspective-room">
+          <div class="terrace-line"></div>
+          <div class="table"></div>
+          <div class="prop lime"></div>
+          <div class="prop leaf"></div>
+          <div class="prop ice"></div>
+          <div class="hero-product"></div>
+        </div>
+        <div class="hero-badges">
+          <div class="badge"><strong>08:30</strong><span>çekim başlangıcı</span></div>
+          <div class="badge"><strong>4 saat</strong><span>toplam prodüksiyon</span></div>
+          <div class="badge"><strong>0 model</strong><span>sadece ürün</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="rules" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Art Direction</span>
+            <h2>Genel Çekim Kuralları</h2>
+            <p>
+              Her ürün Vena’nın gerçek mekânında çekilecek. Stüdyo etkisi değil; teras,
+              ahşap masa, derin perspektif ve premium mekân algısı hedeflenir.
             </p>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-white/80 text-xs tracking-widest font-light border-y border-white/20 py-6">
-                <div class="text-center px-2">
-                    <span class="block text-vena-accent font-medium mb-1">FORMAT</span>
-                    9:16 Dikey
-                </div>
-                <div class="text-center px-2 border-l border-white/20">
-                    <span class="block text-vena-accent font-medium mb-1">TÜR</span>
-                    Sadece Fotoğraf
-                </div>
-                <div class="text-center px-2 border-l border-white/20">
-                    <span class="block text-vena-accent font-medium mb-1">MODEL</span>
-                    Kesinlikle Yok
-                </div>
-                <div class="text-center px-2 border-l border-white/20">
-                    <span class="block text-vena-accent font-medium mb-1">STYLING</span>
-                    Vena Takeaway
-                </div>
-            </div>
-        </div>
-        <a href="#kurallar" class="absolute bottom-10 animate-bounce text-white/50 hover:text-white transition-colors">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-        </a>
-    </header>
-
-    <!-- 1. Konsept ve Styling -->
-    <section id="kurallar" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16 fade-in">
-            <h2 class="text-3xl md:text-5xl font-serif text-vena-dark mb-4">Sanat Yönetimi & Kurallar</h2>
-            <div class="w-16 h-px bg-vena-accent mx-auto"></div>
+          </div>
+          <span class="section-pill">Model / el / insan yok</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 md:p-10 border border-vena-stone shadow-sm rounded-xl fade-in">
-                <div class="w-12 h-12 bg-vena-light rounded-full flex items-center justify-center mb-6 border border-vena-stone">
-                    <svg class="w-6 h-6 text-vena-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path></svg>
-                </div>
-                <h3 class="font-serif text-2xl text-vena-dark mb-3">Sadece Fotoğraf</h3>
-                <p class="text-sm font-light text-vena-muted leading-relaxed">
-                    Video, reels veya hareketli format kullanılmayacak. Yüksek enstantane ile <strong>anı donduran aksiyon kareleri</strong> (buzun düşüşü, köpük dokusu) çekilecek.
-                </p>
-            </div>
+        <div class="rules-grid">
+          <article class="rule-card">
+            <b>01 · Yalnızca ürün</b>
+            <p>Karelerde model, el, bilek, yüz, müşteri veya personel görünmeyecek. Ürün tek kahraman olacak.</p>
+          </article>
 
-            <div class="bg-white p-8 md:p-10 border border-vena-stone shadow-sm rounded-xl fade-in">
-                <div class="w-12 h-12 bg-vena-light rounded-full flex items-center justify-center mb-6 border border-vena-stone">
-                    <svg class="w-6 h-6 text-vena-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path><line x1="3" y1="3" x2="21" y2="21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line></svg>
-                </div>
-                <h3 class="font-serif text-2xl text-vena-dark mb-3">Modelsiz (Still Life)</h3>
-                <p class="text-sm font-light text-vena-muted leading-relaxed">
-                    İnsan bedeni, el, kol veya bilek <strong>kesinlikle kadraja girmeyecek.</strong> Ürünler birer sanat eseri gibi konumlandırılacak. Teras manzarası arka planda ürüne eşlik edecek.
-                </p>
-            </div>
+          <article class="rule-card">
+            <b>02 · Gerçek mekân</b>
+            <p>Çekimler terasta ve iç mekândaki ahşap masalarda yapılacak. Arka planda mekân hissi flu kalacak.</p>
+          </article>
 
-            <div class="bg-vena-dark text-white p-8 md:p-10 border border-vena-dark shadow-xl rounded-xl fade-in transform md:-translate-y-4">
-                <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-6 border border-white/20">
-                    <svg class="w-6 h-6 text-vena-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
-                </div>
-                <h3 class="font-serif text-2xl text-white mb-3">Ulaşılabilir Styling</h3>
-                <ul class="text-sm font-light text-gray-400 space-y-3">
-                    <li><span class="text-vena-accent mr-2">✦</span> <strong>Sadece</strong> Vena premium takeaway bardakları (Kağıt peçete kullanılmayacak).</li>
-                    <li><span class="text-vena-accent mr-2">✦</span> Taze nane, lime, çilek, yeşil elma, kızılcık veya donuk orman meyvesi.</li>
-                    <li><span class="text-vena-accent mr-2">✦</span> Güneş gözlüğü, sade cep telefonu, şık cam karıştırıcı.</li>
-                </ul>
-            </div>
+          <article class="rule-card">
+            <b>03 · Sade styling</b>
+            <p>Her ürünün içeriğini destekleyen 1–3 küçük detay kullanılacak. Aşırı obje, yapay çiçek veya lüks aksesuar yok.</p>
+          </article>
+
+          <article class="rule-card">
+            <b>04 · Mobil güvenli kadraj</b>
+            <p>Her kare 9:16 story/reels ve 4:5 feed kırpımına uygun boşlukla çekilecek.</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- 2. Mocktail Serisi (10 Ürün) -->
-    <section id="mocktails" class="py-24 bg-white border-y border-vena-stone">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 fade-in">
-                <div>
-                    <span class="text-vena-accent tracking-[0.2em] text-sm uppercase mb-2 block font-medium">Bölüm 01</span>
-                    <h2 class="text-4xl md:text-5xl font-serif text-vena-dark">Mocktail & Frozen Serisi</h2>
-                </div>
-                <div class="mt-4 md:mt-0 text-vena-muted text-sm tracking-wider uppercase bg-vena-light px-4 py-2 rounded-full border border-vena-stone">
-                    10 Özel Çekim Açısı
-                </div>
-            </div>
-
-            <!-- Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Drink 1: Yuzu Mint -->
-                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
-                    <div class="h-64 overflow-hidden relative bg-gray-200">
-                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=800&auto=format&fit=crop');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
-                            <span class="text-white font-serif text-2xl tracking-wide">Yuzu Mint</span>
-                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Yeşil çay, nane, chia</p>
-                        <div class="bg-vena-light p-4 rounded-xl">
-                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
-                            <p class="text-sm font-light text-vena-muted leading-relaxed">
-                                Hafif çapraz üstten (45 derece) natürmort çekim. Bardak içindeki chia tohumlarının dağılımı ve yüzeydeki taze nane yaprağı net görünmeli.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Drink 2: Sorrel Mist -->
-                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
-                    <div class="h-64 overflow-hidden relative bg-gray-200">
-                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1556881286-fc6915169721?q=80&w=800&auto=format&fit=crop');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
-                            <span class="text-white font-serif text-2xl tracking-wide">Sorrel Mist</span>
-                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Yeşil elma, kuzu kulağı</p>
-                        <div class="bg-vena-light p-4 rounded-xl">
-                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
-                            <p class="text-sm font-light text-vena-muted leading-relaxed">
-                                Göz hizasından biraz aşağıda (low angle). Arkaya gökyüzü veya teras boşluğunu alarak içeceğin botanik ferahlığını ve renk tonunu güçlendir.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Drink 3: Yuzu Cranberry -->
-                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
-                    <div class="h-64 overflow-hidden relative bg-gray-200">
-                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1595981267035-7b04d84b4e1e?q=80&w=800&auto=format&fit=crop');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
-                            <span class="text-white font-serif text-2xl tracking-wide">Yuzu Cranberry</span>
-                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Kızılcık, Küba nanesi</p>
-                        <div class="bg-vena-light p-4 rounded-xl">
-                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
-                            <p class="text-sm font-light text-vena-muted leading-relaxed">
-                                Tam karşıdan, sıkı ürün kadrajı. İçecekteki yoğun kırmızı ton ile nanenin yeşil kontrastını tek bir düzlemde parlat. Arka plan tamamen flu.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Drink 4: Hibiscus -->
-                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
-                    <div class="h-64 overflow-hidden relative bg-gray-200">
-                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1546171753-97d7676e4602?q=80&w=800&auto=format&fit=crop');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
-                            <span class="text-white font-serif text-2xl tracking-wide">Hibiscus</span>
-                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Çiçeksi, sade hibiskus</p>
-                        <div class="bg-vena-light p-4 rounded-xl">
-                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
-                            <p class="text-sm font-light text-vena-muted leading-relaxed">
-                                Ters ışık (Backlight). Gün ışığının bardağın içinden geçip sıvının saydamlığını ve yakut rengini parlattığı, gölgeli dramatik estetik fotoğraf.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Drink 5: Berry Hibiscus -->
-                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
-                    <div class="h-64 overflow-hidden relative bg-gray-200">
-                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1497534446932-c925b458314e?q=80&w=800&auto=format&fit=crop');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
-                            <span class="text-white font-serif text-2xl tracking-wide">Berry Hibiscus</span>
-                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Orman meyveleri, hibiskus</p>
-                        <div class="bg-vena-light p-4 rounded-xl">
-                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
-                            <p class="text-sm font-light text-vena-muted leading-relaxed">
-                                Tam kuşbakışı (Overhead). Yüzeyde yüzen donuk/taze orman meyvesi parçalarına ve büyük buz kütlelerinin dokusuna odaklanılan makro kare.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Drink 6: Cool Lime -->
-                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
-                    <div class="h-64 overflow-hidden relative bg-gray-200">
-                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=800&auto=format&fit=crop');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
-                            <span class="text-white font-serif text-2xl tracking-wide">Cool Lime</span>
-                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Lime, nane, ferahlık</p>
-                        <div class="bg-vena-light p-4 rounded-xl">
-                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
-                            <p class="text-sm font-light text-vena-muted leading-relaxed">
-                                Çok sıkı makro kadraj. Sadece bardağın dışındaki buğulanmaya (condensation), su damlacıklarına ve içerdeki lime dokusuna odaklan.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Drink 7: Strawberry Lime -->
-                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
-                    <div class="h-64 overflow-hidden relative bg-gray-200">
-                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1595981267035-7b04d84b4e1e?q=80&w=800&auto=format&fit=crop');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
-                            <span class="text-white font-serif text-2xl tracking-wide">Strawberry Lime</span>
-                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Çilek, lime</p>
-                        <div class="bg-vena-light p-4 rounded-xl">
-                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
-                            <p class="text-sm font-light text-vena-muted leading-relaxed">
-                                Teras korkuluğu veya masa kenarı üzerinde <strong class="text-vena-dark">tek başına duran bardak.</strong> Model yok. Ürün detayları net, arkadaki Ankara manzarası bokeh.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Drink 8: Dragon Bull -->
-                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
-                    <div class="h-64 overflow-hidden relative bg-gray-200">
-                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=800&auto=format&fit=crop');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
-                            <span class="text-white font-serif text-2xl tracking-wide">Dragon Bull</span>
-                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Ejder meyvesi, Red Bull</p>
-                        <div class="bg-vena-light p-4 rounded-xl">
-                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
-                            <p class="text-sm font-light text-vena-muted leading-relaxed">
-                                Geniş still-life masa kompozisyonu. Enerjik pembe rengi; masadaki güneş gözlüğü, cep telefonu ve markalı Vena ambalajıyla yan yana kurgula.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Drink 9: Raspberry Cream -->
-                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl">
-                    <div class="h-64 overflow-hidden relative bg-gray-200">
-                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1572490122747-3968b75bb699?q=80&w=800&auto=format&fit=crop');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
-                            <span class="text-white font-serif text-2xl tracking-wide">Raspberry Cream</span>
-                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Frambuaz, kaymak/krema</p>
-                        <div class="bg-vena-light p-4 rounded-xl">
-                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
-                            <p class="text-sm font-light text-vena-muted leading-relaxed">
-                                Yan profil, tam göz hizası. Üstteki krema tabakası ile alttaki frambuazın renk geçişini (gradient) ve kremsi dokuyu pürüzsüzce yakala.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Drink 10: Popcorn Kiss -->
-                <div class="group fade-in bg-white border border-vena-stone hover:border-vena-accent transition-colors rounded-2xl overflow-hidden shadow-sm hover:shadow-xl lg:col-start-2">
-                    <div class="h-64 overflow-hidden relative bg-gray-200">
-                        <div class="absolute inset-0 image-card-bg" style="background-image: url('https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?q=80&w=800&auto=format&fit=crop');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                        <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
-                            <span class="text-white font-serif text-2xl tracking-wide">Popcorn Kiss</span>
-                            <span class="bg-vena-accent text-white text-[10px] font-bold tracking-widest px-2 py-1 rounded-sm">350₺</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-xs text-vena-accent font-semibold mb-4 uppercase tracking-wider">Karamelize patlamış mısır</p>
-                        <div class="bg-vena-light p-4 rounded-xl">
-                            <strong class="text-vena-dark block mb-1 text-sm font-medium">📸 Açı & Kompozisyon:</strong>
-                            <p class="text-sm font-light text-vena-muted leading-relaxed">
-                                Üstteki garnitüre (mısır/karamel) yakın plan (close-up). Arka planda masa üstünde duran Vena menüsü bulunsun ancak yazıları zarifçe flu (bokeh) olsun.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+    <section id="timeline" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Çekim Akışı</span>
+            <h2>08:30 — 12:30 Planı</h2>
+            <p>
+              Çekim toplam 4 saat sürecek. İlk 3 saat 45 dakika ürün çekimlerine,
+              son 15 dakika ise teras ve iç mekân atmosfer karelerine ayrılacak.
+            </p>
+          </div>
+          <span class="section-pill">Son 15 dk mekân çekimi</span>
         </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="time">08:30 — 08:45</div>
+            <div class="timeline-content">
+              <h3>Kurulum & Işık Testi</h3>
+              <p>Teras ve iç mekândaki ahşap masalar seçilir. Derin perspektif arka planlar, pencere ışığı ve masa yüzeyleri kontrol edilir.</p>
+              <ul>
+                <li>9:16 ve 4:5 güvenli alan testi yapılır.</li>
+                <li>Bardak, buz, meyve, nane ve sade styling malzemeleri hazırlanır.</li>
+                <li>Ürün dışında insan ya da el kadrajı alınmaz.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">08:45 — 09:25</div>
+            <div class="timeline-content">
+              <h3>Elixir Lab / Frozen Detox</h3>
+              <p>Sabah ışığında clean, wellness ve fresh hissi veren frozen detox ürünleri çekilir.</p>
+              <ul>
+                <li>Green Detox</li>
+                <li>Orange Detox</li>
+                <li>Red Detox</li>
+              </ul>
+              <p class="note">Styling: salatalık, yeşil elma, lime, portakal, ananas, zencefil, pancar/havuç detayı ve taze nane.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">09:25 — 10:35</div>
+            <div class="timeline-content">
+              <h3>Mocktail / Frozen — Ferah Seri</h3>
+              <p>Teras ve pencere kenarı ahşap masalarda ferah, buzlu ve renkli ürün kareleri alınır.</p>
+              <ul>
+                <li>Yuzu Mint</li>
+                <li>Sorrel Mist</li>
+                <li>Yuzu Cranberry</li>
+                <li>Hibiscus</li>
+                <li>Berry Hibiscus</li>
+                <li>Cool Lime</li>
+                <li>Strawberry Lime</li>
+              </ul>
+              <p class="note">Styling: nane, lime, çilek, chia, yeşil elma, kızılcık/orman meyvesi ve buz.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">10:35 — 11:10</div>
+            <div class="timeline-content">
+              <h3>Mocktail / Frozen — Renkli Kahramanlar</h3>
+              <p>Daha karakterli ve yoğun renkli ürünler kontrollü teras ışığı veya iç mekân ahşap masada çekilir.</p>
+              <ul>
+                <li>Dragon Bull</li>
+                <li>Raspberry Cream</li>
+                <li>Popcorn Kiss</li>
+              </ul>
+              <p class="note">Styling: ejder meyvesi, frambuaz, karamelize popcorn ve buz. Obje kalabalığı yok.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">11:10 — 11:35</div>
+            <div class="timeline-content">
+              <h3>Milkshake Serisi</h3>
+              <p>İç mekândaki ahşap masalarda kremamsı, tatlı ve sade ürün kareleri alınır.</p>
+              <ul>
+                <li>Milkshake — Çikolata</li>
+                <li>Milkshake — Çilek</li>
+                <li>Milkshake — Muz</li>
+                <li>Milkshake — Vanilya</li>
+              </ul>
+              <p class="note">Styling: küçük çikolata parçası, çilek, muz dilimi veya vanilya hissi veren sade detay.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">11:35 — 12:15</div>
+            <div class="timeline-content">
+              <h3>Mindful Mixology / Negroni & Gin</h3>
+              <p>İç mekân ahşap masalarda daha premium, sakin ve sofistike ürün kareleri çekilir.</p>
+              <ul>
+                <li>Coffee Negroni</li>
+                <li>Classic Negroni</li>
+                <li>Orange Negroni</li>
+                <li>Gin Soda</li>
+                <li>Gin Tonik</li>
+                <li>Gin Bull</li>
+              </ul>
+              <p class="note">Styling: büyük buz, portakal kabuğu, lime, nane, çok az kahve çekirdeği ve sade cam karıştırıcı.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item highlight">
+            <div class="time">12:15 — 12:30</div>
+            <div class="timeline-content">
+              <h3>Son 15 Dakika — Mekân Atmosfer Çekimleri</h3>
+              <p>Ürün çekimleri tamamlandıktan sonra Vena Coffee Co.’nun mekân hissini destekleyen genel atmosfer kareleri alınır.</p>
+              <ul>
+                <li>Teras genel masa görünümü</li>
+                <li>Ahşap masa yüzey detayları</li>
+                <li>Derin perspektif iç mekân arka planı</li>
+                <li>Boş masa, bardak ve menü detayları</li>
+                <li>Atakule / teras atmosferi</li>
+              </ul>
+              <p class="note">Bu bölümde de model, el veya müşteri kadrajı kullanılmayacak. Mekân boş, temiz ve premium görünecek.</p>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- 3. Mindful Mixology -->
-    <section id="mixology" class="py-24 bg-vena-light">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 fade-in">
-                <div>
-                    <span class="text-vena-accent tracking-[0.2em] text-sm uppercase mb-2 block font-medium">Bölüm 02</span>
-                    <h2 class="text-4xl md:text-5xl font-serif text-vena-dark">Mindful Mixology</h2>
-                </div>
-                <div class="mt-4 md:mt-0 text-vena-muted text-sm tracking-wider uppercase bg-white px-4 py-2 rounded-full border border-vena-stone shadow-sm">
-                    Premium Atmosfer
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- Mixology 1 -->
-                <div class="group fade-in bg-vena-dark text-white rounded-2xl overflow-hidden shadow-lg border border-vena-dark/50">
-                    <div class="h-56 overflow-hidden relative bg-black">
-                        <div class="absolute inset-0 image-card-bg opacity-70" style="background-image: url('https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=800&auto=format&fit=crop');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-2xl text-white mb-3">Coffee Negroni</h3>
-                        <p class="text-sm font-light text-gray-400 leading-relaxed">
-                            Koyu ahşap veya siyah zemin üzerinde salt ürün karesi. Espresso köpüğünün makro yüzey dokusu. Tam akşamüstü ışığında dramatik kontrast yaratılarak çekilecek.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Mixology 2 -->
-                <div class="group fade-in bg-vena-dark text-white rounded-2xl overflow-hidden shadow-lg border border-vena-dark/50">
-                    <div class="h-56 overflow-hidden relative bg-black">
-                        <div class="absolute inset-0 image-card-bg opacity-70" style="background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=800&auto=format&fit=crop');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-2xl text-white mb-3">Orange & Classic Duo</h3>
-                        <p class="text-sm font-light text-gray-400 leading-relaxed">
-                            İkili natürmort kompozisyon. Portakal kabuğu kıvrımı ve kristalize buz kütlesi ön planda. Arkadaki teras ışıkları yavaş yavaş yanarken estetik karanlık (moody) çekim.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Mixology 3 -->
-                <div class="group fade-in bg-vena-dark text-white rounded-2xl overflow-hidden shadow-lg border border-vena-dark/50">
-                    <div class="h-56 overflow-hidden relative bg-black">
-                        <div class="absolute inset-0 image-card-bg opacity-70" style="background-image: url('https://images.unsplash.com/photo-1555507036-ab1e4006aa07?q=80&w=800&auto=format&fit=crop');"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-2xl text-white mb-3">Top-down Atmosfer</h3>
-                        <p class="text-sm font-light text-gray-400 leading-relaxed">
-                            Yukarıdan (overhead) genel masa çekimi. Sadece masada duran ürünler: En az 4 farklı içecek, markalı Vena takeaway bardakları, menü ve küçük botanik dallar.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
+    <section id="products" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Shot List</span>
+            <h2>Teker Teker Ürün Çekim Listesi</h2>
+            <p>
+              Her ürün için mekân, kadraj, çekim notu ve uygulanabilir sade styling önerisi.
+              Filtreleri kullanarak ürün gruplarını ayrı ayrı görüntüleyebilirsin.
+            </p>
+          </div>
+          <span class="section-pill" id="productCount">23 ürün</span>
         </div>
+
+        <div class="filter-bar" aria-label="Ürün filtreleri">
+          <button class="filter-btn active" data-filter="all">Tümü</button>
+          <button class="filter-btn" data-filter="mocktail">Mocktail / Frozen</button>
+          <button class="filter-btn" data-filter="elixir">Elixir Lab</button>
+          <button class="filter-btn" data-filter="milkshake">Milkshake</button>
+          <button class="filter-btn" data-filter="mixology">Negroni / Gin</button>
+        </div>
+
+        <div class="product-grid">
+          <!-- Mocktail / Frozen -->
+          <article class="product-card" data-category="mocktail" style="--tone:#8fb681;--tone-soft:rgba(143,182,129,.34);--prop:#c7da68;--rotate:-4deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Mocktail / Frozen</span><span class="price">350₺</span></div>
+              <h3>Yuzu Mint</h3>
+              <p class="desc">Yeşil çay, nane ve chia tohumu ile ferahlatıcı bir lezzet.</p>
+              <div class="location-note"><b>Mekân</b><p>Teras masası veya pencere kenarı ahşap masa. Arka plan açık ve flu.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>45° çapraz üst açı. Chia taneleri, nane ve buz dokusu net görünmeli.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Taze nane, birkaç chia tanesi, küçük lime dilimi.</p></div>
+              <div class="tags"><span class="tag">fresh</span><span class="tag">nane</span><span class="tag">teras</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="mocktail" style="--tone:#9fb46c;--tone-soft:rgba(159,180,108,.34);--prop:#7f9b64;--rotate:3deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Mocktail / Frozen</span><span class="price">350₺</span></div>
+              <h3>Sorrel Mist</h3>
+              <p class="desc">Yeşil elma ve kuzu kulağının tazeleyici uyumu.</p>
+              <div class="location-note"><b>Mekân</b><p>Teras, açık hava hissi güçlü masa. Arka plan gökyüzü/teras derinliği.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Hafif low angle ürün portresi. Botanik ferahlık vurgulanmalı.</p></div>
+              <div class="styling-note"><b>Styling</b><p>İnce yeşil elma dilimi, kuzu kulağı yaprağı.</p></div>
+              <div class="tags"><span class="tag">yeşil elma</span><span class="tag">botanik</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="mocktail" style="--tone:#a22f46;--tone-soft:rgba(162,47,70,.30);--prop:#7f9b64;--rotate:-2deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Mocktail / Frozen</span><span class="price">350₺</span></div>
+              <h3>Yuzu Cranberry</h3>
+              <p class="desc">Kızılcık ve Küba nanesinin ferahlatıcı birleşimi.</p>
+              <div class="location-note"><b>Mekân</b><p>İç mekân ahşap masa. Arka planda masa sıraları ve derin perspektif.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Tam karşıdan sıkı ürün portresi. Kırmızı ve yeşil kontrastı net olsun.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Taze nane, küçük kızılcık veya kırmızı meyve detayı.</p></div>
+              <div class="tags"><span class="tag">kızılcık</span><span class="tag">kontrast</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="mocktail" style="--tone:#b04e68;--tone-soft:rgba(176,78,104,.30);--prop:#d69cb0;--rotate:5deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Mocktail / Frozen</span><span class="price">350₺</span></div>
+              <h3>Hibiscus</h3>
+              <p class="desc">Hibiskusun çiçeksi ve hafif ekşi aromaları.</p>
+              <div class="location-note"><b>Mekân</b><p>Teras veya aydınlık pencere önü ahşap masa.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Ters ışık/yandan ışık. Sıvı renginin içinden ışık geçiyormuş gibi görünmesi hedeflenir.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Tek nane yaprağı veya çok küçük çiçeksi çağrışım. Abartı yok.</p></div>
+              <div class="tags"><span class="tag">hibiskus</span><span class="tag">backlight</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="mocktail" style="--tone:#7f3c62;--tone-soft:rgba(127,60,98,.30);--prop:#b04e68;--rotate:-5deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Mocktail / Frozen</span><span class="price">350₺</span></div>
+              <h3>Berry Hibiscus</h3>
+              <p class="desc">Orman meyveleri ve hibiskusun dengeli uyumu.</p>
+              <div class="location-note"><b>Mekân</b><p>İç mekân ahşap masa. Arka planda sıcak mekân derinliği.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Hafif yukarıdan masa kompozisyonu. Meyve ve buz yüzeyi görülsün.</p></div>
+              <div class="styling-note"><b>Styling</b><p>2–3 orman meyvesi, büyük buz, küçük nane.</p></div>
+              <div class="tags"><span class="tag">berry</span><span class="tag">ahşap masa</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="mocktail" style="--tone:#c7da68;--tone-soft:rgba(199,218,104,.34);--prop:#7f9b64;--rotate:2deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Mocktail / Frozen</span><span class="price">350₺</span></div>
+              <h3>Cool Lime</h3>
+              <p class="desc">Limenin canlı ve serinletici aroması.</p>
+              <div class="location-note"><b>Mekân</b><p>Teras veya pencere kenarı ahşap masa. Arka plan ferah ve flu.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Makro yakın plan + ana ürün karesi. Buğu, damlacık ve lime dokusu kahraman.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Lime dilimi, taze nane, büyük buz.</p></div>
+              <div class="tags"><span class="tag">lime</span><span class="tag">makro</span><span class="tag">buğu</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="mocktail" style="--tone:#d75876;--tone-soft:rgba(215,88,118,.30);--prop:#d92750;--rotate:-3deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Mocktail / Frozen</span><span class="price">350₺</span></div>
+              <h3>Strawberry Lime</h3>
+              <p class="desc">Çilek ve limenin tatlı-ekşi dengesi.</p>
+              <div class="location-note"><b>Mekân</b><p>Teras masası. Arkada açık hava ve Atakule/şehir hissi flu kalır.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Ürün tek başına. Çilek kırmızısı ve lime yeşili canlı ama doğal dursun.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Yarım çilek, lime dilimi, küçük nane.</p></div>
+              <div class="tags"><span class="tag">çilek</span><span class="tag">teras</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="mocktail" style="--tone:#d33d98;--tone-soft:rgba(211,61,152,.30);--prop:#e16cb6;--rotate:4deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Mocktail / Frozen</span><span class="price">350₺</span></div>
+              <h3>Dragon Bull</h3>
+              <p class="desc">Ejder meyvesi ve Red Bull’un enerjik birleşimi.</p>
+              <div class="location-note"><b>Mekân</b><p>İç mekân ahşap masa veya kontrollü teras ışığı.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Geniş masa karesi. Pembe ton güçlü olsun, ama obje kalabalığı yapılmasın.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Ejder meyvesi parçası, buz, sade bardak çevresi.</p></div>
+              <div class="tags"><span class="tag">dragon fruit</span><span class="tag">enerjik</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="mocktail" style="--tone:#cd6b8d;--tone-soft:rgba(205,107,141,.30);--prop:#f0c9d8;--rotate:-1deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Mocktail / Frozen</span><span class="price">350₺</span></div>
+              <h3>Raspberry Cream</h3>
+              <p class="desc">Frambuaz ve kaymağın kremamsı uyumu.</p>
+              <div class="location-note"><b>Mekân</b><p>İç mekân ahşap masa. Arkada sıcak ve derin flu perspektif.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Yan profil/göz hizası. Frambuaz ve krema geçişi net görünmeli.</p></div>
+              <div class="styling-note"><b>Styling</b><p>1–2 frambuaz, kremamsı doku vurgusu.</p></div>
+              <div class="tags"><span class="tag">cream</span><span class="tag">gradient</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="mocktail" style="--tone:#c7924d;--tone-soft:rgba(199,146,77,.32);--prop:#f0cd90;--rotate:3deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Mocktail / Frozen</span><span class="price">350₺</span></div>
+              <h3>Popcorn Kiss</h3>
+              <p class="desc">Karamelize patlamış mısır aromalı.</p>
+              <div class="location-note"><b>Mekân</b><p>İç mekân ahşap masa. Menü sadece flu arka plan detayı olabilir.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Üst garnitüre yakın plan + tam ürün karesi. Eğlenceli ama premium dursun.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Birkaç karamelize popcorn tanesi, temiz yüzey.</p></div>
+              <div class="tags"><span class="tag">karamel</span><span class="tag">popcorn</span></div>
+            </div>
+          </article>
+
+          <!-- Elixir -->
+          <article class="product-card" data-category="elixir" style="--tone:#6f9b62;--tone-soft:rgba(111,155,98,.34);--prop:#b7d47a;--rotate:2deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Elixir Lab / Frozen</span><span class="price">450₺</span></div>
+              <h3>Green Detox</h3>
+              <p class="desc">Salatalık, yeşil elma, lime suyu, roka, maydanoz. Çiçek balı ile frozen formda.</p>
+              <div class="location-note"><b>Mekân</b><p>Teras veya pencere kenarı ahşap masa. Sabah ışığı tercih edilir.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>45° üst açı. Clean, wellness, fresh ve arınmış bir görünüm.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Salatalık dilimi, yeşil elma, lime, küçük maydanoz/roka detayı.</p></div>
+              <div class="tags"><span class="tag">detox</span><span class="tag">green</span><span class="tag">wellness</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="elixir" style="--tone:#df9446;--tone-soft:rgba(223,148,70,.34);--prop:#f2c05f;--rotate:-4deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Elixir Lab / Frozen</span><span class="price">450₺</span></div>
+              <h3>Orange Detox</h3>
+              <p class="desc">Portakal, ananas, çilek, limon suyu, taze zencefil. Çiçek balı ile frozen formda.</p>
+              <div class="location-note"><b>Mekân</b><p>Terasta gün ışığı alan masa. Ahşap yüzey sıcaklık verir.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Tam ürün portresi + üstten detay. Enerjik, vitamin hissi veren sıcak ton.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Portakal dilimi, küçük ananas parçası, minik zencefil detayı.</p></div>
+              <div class="tags"><span class="tag">orange</span><span class="tag">zencefil</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="elixir" style="--tone:#9d3040;--tone-soft:rgba(157,48,64,.30);--prop:#d65d67;--rotate:4deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Elixir Lab / Frozen</span><span class="price">450₺</span></div>
+              <h3>Red Detox</h3>
+              <p class="desc">Pancar, havuç, yeşil elma, taze nane. Çiçek balı ile frozen formda.</p>
+              <div class="location-note"><b>Mekân</b><p>İç mekân ahşap masa. Ahşap tonları kırmızı içecekle kontrast verir.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Göz hizası veya hafif üst açı. Kırmızı ton güçlü ama doğal görünmeli.</p></div>
+              <div class="styling-note"><b>Styling</b><p>İnce havuç şeridi, küçük pancar referansı, taze nane.</p></div>
+              <div class="tags"><span class="tag">red</span><span class="tag">pancar</span></div>
+            </div>
+          </article>
+
+          <!-- Milkshake -->
+          <article class="product-card" data-category="milkshake" style="--tone:#7b4c34;--tone-soft:rgba(123,76,52,.30);--prop:#d5a67c;--rotate:-3deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Milkshake</span><span class="price">275₺</span></div>
+              <h3>Milkshake — Çikolata</h3>
+              <p class="desc">Çikolata aromalı milkshake.</p>
+              <div class="location-note"><b>Mekân</b><p>İç mekân ahşap masa. Sıcak, tatlı ve kremamsı atmosfer.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Göz hizasında ürün portresi. Koyu çikolata tonu ahşapla uyumlu olmalı.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Küçük çikolata parçası veya çok az kakao serpiştirme.</p></div>
+              <div class="tags"><span class="tag">çikolata</span><span class="tag">kremamsı</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="milkshake" style="--tone:#d77891;--tone-soft:rgba(215,120,145,.30);--prop:#d92750;--rotate:3deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Milkshake</span><span class="price">275₺</span></div>
+              <h3>Milkshake — Çilek</h3>
+              <p class="desc">Çilek aromalı milkshake.</p>
+              <div class="location-note"><b>Mekân</b><p>Teras veya pencere kenarı masa. Aydınlık ve ferah arka plan.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Hafif üst açı. Pembe ton temiz ve tatlı görünmeli.</p></div>
+              <div class="styling-note"><b>Styling</b><p>1–2 taze çilek, sade yüzey.</p></div>
+              <div class="tags"><span class="tag">çilek</span><span class="tag">tatlı</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="milkshake" style="--tone:#e1c27a;--tone-soft:rgba(225,194,122,.34);--prop:#f0d690;--rotate:-2deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Milkshake</span><span class="price">275₺</span></div>
+              <h3>Milkshake — Muz</h3>
+              <p class="desc">Muz aromalı milkshake.</p>
+              <div class="location-note"><b>Mekân</b><p>İç mekân ahşap masa. Açık içecek tonuna kontrast sağlar.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Minimal ürün karesi. Krem ve bej tonlar temiz kalmalı.</p></div>
+              <div class="styling-note"><b>Styling</b><p>1–2 muz dilimi, abartısız servis detayı.</p></div>
+              <div class="tags"><span class="tag">muz</span><span class="tag">minimal</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="milkshake" style="--tone:#e6d6bf;--tone-soft:rgba(230,214,191,.42);--prop:#c9a884;--rotate:4deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Milkshake</span><span class="price">275₺</span></div>
+              <h3>Milkshake — Vanilya</h3>
+              <p class="desc">Vanilya aromalı milkshake.</p>
+              <div class="location-note"><b>Mekân</b><p>İç mekân ahşap masa. Arka plan çok açık kalmamalı.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Göz hizası ve hafif yandan ışık. Açık renkli ürün ahşapta ayrışmalı.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Vanilya hissi veren sade krem/bej detay; ekstra obje yok.</p></div>
+              <div class="tags"><span class="tag">vanilya</span><span class="tag">soft</span></div>
+            </div>
+          </article>
+
+          <!-- Mixology / Negroni -->
+          <article class="product-card" data-category="mixology" style="--tone:#4a2f24;--tone-soft:rgba(74,47,36,.30);--prop:#c47d39;--rotate:-2deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Mindful Mixology</span><span class="price">450₺</span></div>
+              <h3>Coffee Negroni</h3>
+              <p class="desc">Alcohol Free Mindful Mixology serisi.</p>
+              <div class="location-note"><b>Mekân</b><p>İç mekân ahşap masa. Derin, loş ve flu arka plan.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Göz hizası + köpük makro detayı. Koyu ton ve premium sakinlik.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Çok az kahve çekirdeği, büyük buz, koyu zemin hissi.</p></div>
+              <div class="tags"><span class="tag">coffee</span><span class="tag">premium</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="mixology" style="--tone:#9a392a;--tone-soft:rgba(154,57,42,.30);--prop:#dd8b3f;--rotate:3deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Mindful Mixology</span><span class="price">450₺</span></div>
+              <h3>Classic Negroni</h3>
+              <p class="desc">Alcohol Free Mindful Mixology serisi.</p>
+              <div class="location-note"><b>Mekân</b><p>İç mekân veya terasta akşamüstü masa hissi.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Tam karşıdan sade ürün portresi. Bar kalitesinde, temiz ve güçlü.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Büyük kristal buz, portakal kabuğu kıvrımı.</p></div>
+              <div class="tags"><span class="tag">classic</span><span class="tag">ice</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="mixology" style="--tone:#d26f32;--tone-soft:rgba(210,111,50,.34);--prop:#f0a64f;--rotate:-5deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Mindful Mixology</span><span class="price">450₺</span></div>
+              <h3>Orange Negroni</h3>
+              <p class="desc">Alcohol Free Mindful Mixology serisi.</p>
+              <div class="location-note"><b>Mekân</b><p>Teras veya iç mekân ahşap masa. Sıcak ışık tercih edilir.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Hafif yandan. Turuncu ton ve portakal kabuğu parlak görünmeli.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Portakal kabuğu, portakal dilimi, büyük buz.</p></div>
+              <div class="tags"><span class="tag">orange</span><span class="tag">warm</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="mixology" style="--tone:#c6c9b7;--tone-soft:rgba(198,201,183,.40);--prop:#9eb474;--rotate:2deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Mindful Mixology</span><span class="price">450₺</span></div>
+              <h3>Gin Soda</h3>
+              <p class="desc">Alcohol Free Mindful Mixology serisi.</p>
+              <div class="location-note"><b>Mekân</b><p>Teras masası. Açık hava ve ferah bokeh.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Temiz, minimal, göz hizası. Kabarcık ve şeffaflık hissi öne çıkar.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Büyük buz, lime, sade cam karıştırıcı.</p></div>
+              <div class="tags"><span class="tag">clear</span><span class="tag">minimal</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="mixology" style="--tone:#b7c48c;--tone-soft:rgba(183,196,140,.40);--prop:#7fa262;--rotate:-3deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Mindful Mixology</span><span class="price">450₺</span></div>
+              <h3>Gin Tonik</h3>
+              <p class="desc">Alcohol Free Mindful Mixology serisi.</p>
+              <div class="location-note"><b>Mekân</b><p>Teras veya iç mekân ahşap masa. Arka planda sıcak flu ışık.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Yan açı. Bardak formu, buz ve lime/nane detayları net görünmeli.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Lime, nane, büyük buz.</p></div>
+              <div class="tags"><span class="tag">tonik</span><span class="tag">lime</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="mixology" style="--tone:#c74155;--tone-soft:rgba(199,65,85,.32);--prop:#d33d98;--rotate:4deg;">
+            <div class="product-visual"><div class="mini-prop round"></div><div class="mini-prop leaf"></div><div class="cup"></div></div>
+            <div class="product-body">
+              <div class="product-meta"><span class="category">Mindful Mixology</span><span class="price">450₺</span></div>
+              <h3>Gin Bull</h3>
+              <p class="desc">Alcohol Free Mindful Mixology serisi.</p>
+              <div class="location-note"><b>Mekân</b><p>İç mekân ahşap masa. Mekân ışıkları arkada flu kalır.</p></div>
+              <div class="shot-note"><b>Çekim</b><p>Hafif geniş ürün karesi. Enerjik ama abartısız bir renk dili.</p></div>
+              <div class="styling-note"><b>Styling</b><p>Buz, minimal kırmızı/pembe meyve detayı.</p></div>
+              <div class="tags"><span class="tag">energy</span><span class="tag">bold</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-vena-dark py-16 text-center text-white/40 text-xs tracking-widest font-light">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-            <p class="font-serif text-xl text-white mb-4 md:mb-0">VENA COFFEE CO.</p>
-            <div class="space-x-4">
-                <span>Atakule Teras Çekimi</span>
-                <span class="text-vena-accent">•</span>
-                <span>Durağan & Modelsiz Fotoğraf Koleksiyonu</span>
-            </div>
+    <section id="styling" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Styling</span>
+            <h2>Sade Styling Listesi</h2>
+            <p>
+              Styling gerçek ürün içeriğini destekleyecek kadar kullanılmalı. Ürünlerin önüne geçen,
+              seti yapaylaştıran veya fazla “lifestyle” görünen aksesuarlar kullanılmamalı.
+            </p>
+          </div>
+          <span class="section-pill">Uygulanabilir liste</span>
         </div>
-    </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Intersection Observer for scroll animations
-            const faders = document.querySelectorAll('.fade-in');
-            const appearOptions = {
-                threshold: 0.15,
-                rootMargin: "0px 0px -50px 0px"
-            };
+        <div class="styling-grid">
+          <article class="panel">
+            <h3>Kullanılacaklar</h3>
+            <ul class="check-list">
+              <li>Vena markalı takeaway bardaklar ve uygun cam bardaklar</li>
+              <li>Büyük buz küpleri ve bardak dışı kontrollü buğu için sprey su</li>
+              <li>Taze nane, lime, çilek, yeşil elma, salatalık</li>
+              <li>Portakal, ananas, zencefil, pancar/havuç detayı</li>
+              <li>Orman meyveleri, frambuaz, birkaç karamelize popcorn tanesi</li>
+              <li>Çok az kahve çekirdeği ve sade cam karıştırıcı</li>
+              <li>Ahşap masa yüzeyi, teras masa yüzeyi, küçük Vena menüsü — sadece flu arka plan için</li>
+              <li>Mikrofiber bez, pipet/kapak kontrolü, yedek bardak ve buz</li>
+            </ul>
+          </article>
 
-            const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                });
-            }, appearOptions);
+          <article class="panel dark">
+            <h3>Kullanılmayacaklar</h3>
+            <ul class="check-list">
+              <li>Model, el, bilek, yüz, müşteri veya personel kadrajı</li>
+              <li>Yapay çiçek, fazla dekoratif obje, altın tepsi veya aşırı lüks aksesuar</li>
+              <li>Telefon, güneş gözlüğü, çanta gibi lifestyle objeler</li>
+              <li>Kalabalık peçete, dağınık masa, ürünle ilgisiz tatlı/yiyecek</li>
+              <li>Ürün rengini kapatan ağır arka plan veya fazla karmaşık kompozisyon</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            faders.forEach(fader => {
-                appearOnScroll.observe(fader);
-            });
+    <section id="locations" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Mekân Kullanımı</span>
+            <h2>Teras & İç Mekân Planı</h2>
+            <p>
+              Çekim mekân içinde doğal görünmeli: ürünler masaya sonradan yerleştirilmiş gibi değil,
+              Vena’da gerçekten servis ediliyormuş gibi konumlandırılmalı.
+            </p>
+          </div>
+        </div>
 
-            // Navbar background transition on scroll
-            const navbar = document.getElementById('navbar');
-            const navBrand = document.getElementById('nav-brand');
-            const navLinks = document.getElementById('nav-links');
-            const navAnchors = navLinks.querySelectorAll('a');
-            const navMobileIcon = document.getElementById('nav-mobile-icon');
+        <div class="location-grid">
+          <article class="location-card" style="--loc-bg: linear-gradient(135deg, #aebfbd, #d7c7b5);">
+            <h3>Teras Çekimleri</h3>
+            <p>
+              Yuzu Mint, Sorrel Mist, Cool Lime, Strawberry Lime, Green Detox, Orange Detox,
+              Gin Soda, Gin Tonik ve Orange Negroni için ferah dış mekân hissi. Arka plan açık,
+              yumuşak ve flu kalacak.
+            </p>
+          </article>
 
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-4');
-                    navbar.classList.remove('py-5', 'bg-transparent');
-                    navBrand.classList.remove('text-white');
-                    navBrand.classList.add('text-vena-dark');
-                    navMobileIcon.classList.remove('text-white');
-                    navMobileIcon.classList.add('text-vena-dark');
-                    navAnchors.forEach(a => {
-                        a.classList.remove('text-white');
-                        a.classList.add('text-vena-dark');
-                    });
-                } else {
-                    navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-4');
-                    navbar.classList.add('py-5', 'bg-transparent');
-                    navBrand.classList.add('text-white');
-                    navBrand.classList.remove('text-vena-dark');
-                    navMobileIcon.classList.add('text-white');
-                    navMobileIcon.classList.remove('text-vena-dark');
-                    navAnchors.forEach(a => {
-                        a.classList.add('text-white');
-                        a.classList.remove('text-vena-dark');
-                    });
-                }
-            });
-        });
-    </script>
+          <article class="location-card" style="--loc-bg: linear-gradient(135deg, #4d2f1f, #9a7658);">
+            <h3>İç Mekân Ahşap Masa</h3>
+            <p>
+              Cranberry, Hibiscus, Berry Hibiscus, Dragon Bull, Raspberry Cream, Popcorn Kiss,
+              Red Detox, Coffee Negroni, Classic Negroni, Gin Bull ve Milkshake çeşitleri için
+              sıcak, premium, derin perspektifli kadraj.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <strong>VENA COFFEE CO. · ATAKULE</strong>
+      <span>Responsive HTML · modelsiz ürün çekimi · teras + ahşap masa + derin perspektif</span>
+    </div>
+  </footer>
+
+  <script>
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const productCards = document.querySelectorAll(".product-card");
+    const productCount = document.getElementById("productCount");
+
+    function setFilter(filter) {
+      let visible = 0;
+
+      productCards.forEach((card) => {
+        const show = filter === "all" || card.dataset.category === filter;
+        card.classList.toggle("hidden", !show);
+        if (show) visible += 1;
+      });
+
+      productCount.textContent = visible + " ürün";
+
+      filterButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.filter === filter);
+      });
+    }
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setFilter(button.dataset.filter);
+      });
+    });
+  </script>
 </body>
 </html>
+
